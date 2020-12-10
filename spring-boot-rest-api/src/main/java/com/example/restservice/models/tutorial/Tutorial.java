@@ -1,23 +1,15 @@
 package com.example.restservice.models.tutorial;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "tutorials")
+@Document(collection = "tutorials")
 public class Tutorial {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private String id;
 
-    @Column(name = "title")
     private String title;
-
-    @Column(name = "description")
     private String description;
-
-    @Column(name = "published")
     private boolean published;
 
     public Tutorial() {
@@ -30,7 +22,7 @@ public class Tutorial {
         this.published = published;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -56,6 +48,10 @@ public class Tutorial {
 
     public void setPublished(boolean isPublished) {
         this.published = isPublished;
+    }
+
+    public boolean getPublished() {
+        return published;
     }
 
     @Override

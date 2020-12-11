@@ -10,39 +10,40 @@ public class Doctor {
     private String id;
 
 
-    private String doctor_name;
+    private String doctorName;
     private String speciality;
-    private String doctor_address;
-    private String hospital_name;
-    private String profile_picture;
+    private String doctorAddress;
+    private String hospitalName;
+    private String about;
+    private String profilePicture;
 
     public Doctor(){
 
     }
 
-    public Doctor(String id, String doctor_name, String speciality, String doctor_address, String hospital_name, String profile_picture) {
-        this.id = id;
-        this.doctor_name = doctor_name;
+    public Doctor(String doctorName, String speciality,
+                  String doctorAddress, String hospitalName,
+                  String about, String profilePicture)
+    {
+        this.doctorName = doctorName;
         this.speciality = speciality;
-        this.doctor_address = doctor_address;
-        this.hospital_name = hospital_name;
-        this.profile_picture = profile_picture;
+        this.doctorAddress = doctorAddress;
+        this.hospitalName = hospitalName;
+        this.about = about;
+        this.profilePicture = profilePicture;
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+
+    public String getDoctorName() {
+        return doctorName;
     }
 
-    public String getDoctor_name() {
-        return doctor_name;
-    }
-
-    public void setDoctor_name(String doctor_name) {
-        this.doctor_name = doctor_name;
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
     }
 
     public String getSpeciality() {
@@ -53,39 +54,48 @@ public class Doctor {
         this.speciality = speciality;
     }
 
-    public String getDoctor_address() {
-        return doctor_address;
+    public String getDoctorAddress() {
+        return doctorAddress;
     }
 
-    public void setDoctor_address(String doctor_address) {
-        this.doctor_address = doctor_address;
+    public void setDoctorAddress(String doctorAddress) {
+        this.doctorAddress = doctorAddress;
     }
 
-    public String getHospital_name() {
-        return hospital_name;
+    public String getHospitalName() {
+        return hospitalName;
     }
 
-    public void setHospital_name(String hospital_name) {
-        this.hospital_name = hospital_name;
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
     }
 
-    public String getProfile_picture() {
-        return profile_picture;
+    public String getAbout() {
+        return about;
     }
 
-    public void setProfile_picture(String profile_picture) {
-        this.profile_picture = profile_picture;
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
     @Override
     public String toString() {
         return "Doctor{" +
                 "id='" + id + '\'' +
-                ", doctor_name='" + doctor_name + '\'' +
+                ", doctorName='" + doctorName + '\'' +
                 ", speciality='" + speciality + '\'' +
-                ", doctor_address='" + doctor_address + '\'' +
-                ", hospital_name='" + hospital_name + '\'' +
-                ", profile_picture='" + profile_picture + '\'' +
+                ", doctorAddress='" + doctorAddress + '\'' +
+                ", hospitalName='" + hospitalName + '\'' +
+                ", about='" + about + '\'' +
+                ", profilePicture='" + profilePicture + '\'' +
                 '}';
     }
 }

@@ -1,12 +1,15 @@
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/controllers/tutorial/TutorialController.java
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/models/patient/Patient.java
-/Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/GreetingController.java
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/repository/DoctorRepository.java
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/repository/TutorialRepository.java
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/repository/PatientRepository.java
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/models/doctor/Doctor.java
-/Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/controllers/doctor/DoctorController.java
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/RestServiceApplication.java
+/Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/repository/ReportRepository.java
+/Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/models/report/Report.java
+/Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/GreetingController.java
+/Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/controllers/doctor/DoctorController.java
+/Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/controllers/report/ReportController.java
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/controllers/patient/PatientController.java
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/Greeting.java
 /Users/hasanuzzamanpobon/Documents/GitHub/intern-11-2020-spring-angular-problem/spring-boot-rest-api/src/main/java/com/example/restservice/models/tutorial/Tutorial.java

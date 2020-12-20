@@ -18,7 +18,7 @@ public class Report {
     private String weight;
     private String allergies;
     private String disabilities;
-    private String medicin;
+    private String medicine;
     private String diet;
     private String patientHistory;
     private String followupDoctorId;
@@ -29,7 +29,7 @@ public class Report {
 
     public Report(String patientId, String doctorId, String createdDatetime,
                   String bloodPressure, String pulseRate, String weight, String allergies,
-                  String disabilities, String medicin,
+                  String disabilities, String medicine,
                   String diet, String patientHistory, String followupDoctorId) {
         this.patientId = patientId;
         this.doctorId = doctorId;
@@ -39,7 +39,7 @@ public class Report {
         this.weight = weight;
         this.allergies = allergies;
         this.disabilities = disabilities;
-        this.medicin = medicin;
+        this.medicine = medicine;
         this.diet = diet;
         this.patientHistory = patientHistory;
         this.followupDoctorId = followupDoctorId;
@@ -114,12 +114,12 @@ public class Report {
         this.disabilities = disabilities;
     }
 
-    public String getMedicin() {
-        return medicin;
+    public String getMedicine() {
+        return medicine;
     }
 
-    public void setMedicin(String medicin) {
-        this.medicin = medicin;
+    public void setMedicine(String medicin) {
+        this.medicine = medicin;
     }
 
     public String getDiet() {
@@ -144,5 +144,25 @@ public class Report {
 
     public void setFollowupDoctorId(String followupDoctorId) {
         this.followupDoctorId = followupDoctorId;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Report{" +
+                "id='" + id + '\'' +
+                ", patientId='" + patientId + '\'' +
+                ", doctorId='" + doctorId + '\'' +
+                ", createdDatetime='" + createdDatetime + '\'' +
+                ", bloodPressure='" + bloodPressure + '\'' +
+                ", pulseRate='" + pulseRate + '\'' +
+                ", weight='" + weight + '\'' +
+                ", allergies='" + allergies + '\'' +
+                ", disabilities='" + disabilities + '\'' +
+                ", medicine='" + medicine + '\'' +
+                ", diet='" + diet + '\'' +
+                ", patientHistory='" + patientHistory + '\'' +
+                ", followupDoctorId='" + followupDoctorId + '\'' +
+                '}';
     }
 }

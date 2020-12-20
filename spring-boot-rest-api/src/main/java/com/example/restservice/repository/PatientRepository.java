@@ -11,7 +11,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface PatientRepository extends MongoRepository<Patient, String> {
     List<Patient> findByPatientNameContaining(String patientName);
 
-    List<Patient> findByDobContaining(Date dob);
-
+   // List<Patient> findByDobContaining(Date dob);
     Optional<Patient> findByPatientNameContainingAndDob(String patientName, Date dob);
+
+
 }

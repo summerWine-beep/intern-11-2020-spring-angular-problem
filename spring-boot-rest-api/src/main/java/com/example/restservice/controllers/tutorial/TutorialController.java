@@ -23,6 +23,7 @@ import com.example.restservice.repository.TutorialRepository;
 
 //@CrossOrigin(origins = "http://localhost:8081")
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class TutorialController {
 

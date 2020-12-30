@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TutorialService } from '../../../services/tutorial.service';
 import { Tutorial } from '../../../classes/tutorial';
+import {  FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-tutorial-list',
@@ -11,8 +12,13 @@ import { Tutorial } from '../../../classes/tutorial';
 })
 export class TutorialListComponent implements OnInit {
   tutorials: Observable<Tutorial[]>;
+  searchForm;
 
-  constructor(private tutorialService: TutorialService, private router: Router) { }
+  constructor(private tutorialService: TutorialService, private router: Router, private formBuilder: FormBuilder) {
+    this.searchForm = this.formBuilder.group({
+      name: '',
+    });
+  }
 
   ngOnInit(): void {
     console.log('Tutorial list');
@@ -41,4 +47,11 @@ export class TutorialListComponent implements OnInit {
   updateTutorial(id: string){
     this.router.navigate(['update', id]);
   }
+
+  OnSubmit(searchName){
+    console.log('Search name:');
+    console.log(searchName.name);
+    this.tutorials = this.tutorialService.findByTitle(searchName.name);
+  }
+
 }

@@ -2,6 +2,10 @@
   <div class="panel-heading">
     <h2>Tutorial List</h2>
   </div>
+  <form [formGroup]="searchForm" (ngSubmit)="OnSubmit(searchForm.value)">
+    <input type="text" id="name" formControlName="name">
+    <button type="submit">Search</button>
+  </form>
   <div class="panel-body">
     <table class="table table-striped">
       <thead>

@@ -9,7 +9,9 @@ import { TutorialDetailsComponent } from './components/tutorial/tutorial-details
 import { CreateTutorialComponent } from './components/tutorial/create-tutorial/create-tutorial.component';
 import { UpdateTutorialComponent } from './components/tutorial/update-tutorial/update-tutorial.component';
 import { TutorialListComponent } from './components/tutorial/tutorial-list/tutorial-list.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PatientListComponent } from './components/patient/patient-list/patient-list.component';
+// import { AddDoctorComponent } from "./doctor/add-doctor/add-doctor.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import {FormsModule} from '@angular/forms';
     TutorialDetailsComponent,
     CreateTutorialComponent,
     UpdateTutorialComponent,
-    TutorialListComponent
+    TutorialListComponent,
+    PatientListComponent
   ],
     imports: [
         RouterModule,
@@ -25,6 +28,7 @@ import {FormsModule} from '@angular/forms';
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        ReactiveFormsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

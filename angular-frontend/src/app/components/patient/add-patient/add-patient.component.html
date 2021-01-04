@@ -1,0 +1,219 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  <title>Patient registration</title>-->
+<!--  <link rel="stylesheet" type="text/css" href="add-patient.component.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div>-->
+<!--    <div class="form-body">-->
+<!--      <img src="../assets/user.jpg">-->
+<!--      <p class="text">Patient Registration</p>-->
+<!--      <form class="login_form">-->
+<!--        <input type="text" name="" placeholder="Patient Name"><br><br>-->
+<!--        <input type="datetime-local" name="" placeholder="Date of Birth"><br><br>-->
+<!--        <input type="age" name="" placeholder="Age"><br><br>-->
+<!--        <input type="gender" name="" placeholder="Gender Name"><br><br>-->
+<!--        <input type="occupation" name="" placeholder="Occupation"><br><br>-->
+<!--        <input type="health_insurance_no" name="" placeholder="Health Insurance Number"><br><br>-->
+<!--        <input type="text" name="" placeholder="Health Care Provider"><br><br>-->
+<!--        <input type="text" name="" placeholder="Patient Address"><br>-->
+<!--        <input type="text" name="" placeholder="Contact Number"><br><br>-->
+<!--        <input type="id" name="" placeholder="Doctor Id"><br>-->
+
+<!--        <button>Save</button>-->
+<!--        <button>Cancel</button>-->
+
+<!--      </form>-->
+
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Colorlib Templates">
+  <meta name="author" content="Colorlib">
+  <meta name="keywords" content="Colorlib Templates">
+
+  <!-- Title Page-->
+  <title>Au Register Forms </title>
+
+<!--  &lt;!&ndash; Icons font CSS&ndash;&gt;-->
+<!--  <link href="./assets/material-design-iconic-font.min.css" rel="stylesheet" media="all">-->
+<!--  <link href="./assets/font-awesome.min.css" rel="stylesheet" media="all">-->
+<!--  &lt;!&ndash; Font special for pages&ndash;&gt;-->
+<!--  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">-->
+
+<!--  &lt;!&ndash; Vendor CSS&ndash;&gt;-->
+<!--  <link href="./assets/select2.min.css" rel="stylesheet" media="all">-->
+<!--  <link href="./assets/datetimepicker.css" rel="stylesheet" media="all">-->
+
+<!--  &lt;!&ndash; Main CSS&ndash;&gt;-->
+<!--  <link href="../assets/main.css" rel="stylesheet" media="all">-->
+  <link href="add-patient.component.css">
+</head>
+
+<body>
+<form (submit)="addPatient($event)">
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+  <div class="wrapper wrapper--w790">
+    <div class="card card-5">
+      <div class="card-heading">
+        <h2 class="title">Patient Registration Form</h2>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          <div class="form-row">
+            <div class="name">Patient Name</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="text" autocomplete="off" id="patient_name">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Date of Birth</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="datetime-local" autocomplete="off" id="date_of_birth">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Age</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="age"  autocomplete="off" id="age">
+              </div>
+            </div>
+          </div>
+          <div class="form-row p-t-20">
+            <label class="label label--block">Gender ngModel</label>
+            <div class="p-t-15"><label class="radio-container m-r-55">Male
+                <input type="radio" checked="checked" name="exist">
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-container">Female
+                <input type="radio" name="exist">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-row m-b-55">
+            <div class="name">Occupation</div>
+            <div class="value">
+              <div class="row row-refine">
+                <div class="col-9">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="text" autocomplete="off" id="occupation">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row m-b-55">
+            <div class="name">Health Insurance Number</div>
+            <div class="value">
+              <div class="row row-refine">
+                <div class="col-9">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="text" autocomplete="off" id="health_insurance_no">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row m-b-55">
+            <div class="name">Health Care Provider</div>
+            <div class="value">
+              <div class="row row-refine">
+                <div class="col-9">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="text" autocomplete="off" id="health_care_provider">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row m-b-55">
+            <div class="name">Patient Address</div>
+            <div class="value">
+              <div class="row row-refine">
+                <div class="col-9">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="text" autocomplete="off" id="patient_address">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row m-b-55">
+            <div class="name">Contact Number</div>
+            <div class="value">
+              <div class="row row-refine">
+                <div class="col-9">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="text" autocomplete="off" id="contact_no">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Doctor Id</div>
+            <div class="value">
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select name="subject">
+                    <option disabled="disabled" selected="selected">Choose option</option>
+                    <option>Subject 1</option>
+                    <option>Subject 2</option>
+                    <option>Subject 3</option>
+                    <option>Subject 4</option>
+                    <option>Subject 5</option>
+                    <option>Subject 6</option>
+                    <option>Subject 7</option>
+                    <option>Subject 8</option>
+                    <option>Subject 9</option>
+                    <option>Subject 10</option>
+                  </select>
+                  <div class="select-dropdown"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button mat-raised-button (click)='sendData()' color="primary">Save</button>
+<!--            <button class="btn btn--radius-2 btn--blue" type="submit">Cancel</button>-->
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+<!--&lt;!&ndash; Jquery JS&ndash;&gt;-->
+<!--<script src="vendor/jquery/jquery.min.js"></script>-->
+<!--&lt;!&ndash; Vendor JS&ndash;&gt;-->
+<!--<script src="vendor/select2/select2.min.js"></script>-->
+<!--<script src="vendor/datepicker/moment.min.js"></script>-->
+<!--<script src="vendor/datepicker/daterangepicker.js"></script>-->
+
+<!--&lt;!&ndash; Main JS&ndash;&gt;-->
+<!--<script src="js/global.js"></script>-->
+
+</body>
+
+</html>
+<!-- end document-->

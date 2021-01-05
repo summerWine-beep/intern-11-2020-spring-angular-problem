@@ -7,20 +7,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.restservice.models.doctor.Doctor;
 import com.example.restservice.repository.DoctorRepository;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class DoctorController {
 
@@ -28,14 +21,14 @@ public class DoctorController {
     DoctorRepository doctorRepository;
 
     @GetMapping("/doctors")
-    public ResponseEntity<List<Doctor>> getAllDoctors(@RequestParam(required = false) String doctorname) {
+    public ResponseEntity<List<Doctor>> getAllDoctors(@RequestParam(required = false) String doctorName) {
         try {
             List<Doctor> doctors = new ArrayList<Doctor>();
 
-            if (doctorname == null) {
+            if (doctorName == null) {
                 doctorRepository.findAll().forEach(doctors::add);
             } else {
-                doctorRepository.findByDoctornameContaining(doctorname).forEach(doctors::add);
+                doctorRepository.findByDoctorNameContaining(doctorName).forEach(doctors::add);
             }
 
             if (doctors.isEmpty()) {
@@ -59,13 +52,13 @@ public class DoctorController {
         }
     }
 
-    @GetMapping("/doctors/name/{doctorname}")
-    public ResponseEntity<List<Doctor>> getDoctorByDoctorname(@PathVariable("doctorname") String doctorname) {
+    @GetMapping("/doctors/name/{doctorName}")
+    public ResponseEntity<List<Doctor>> getDoctorByDoctorName(@PathVariable("doctorName") String doctorName) {
         List<Doctor> doctors = new ArrayList<Doctor>();
-        List<Doctor> doctorData = doctorRepository.findByDoctornameContaining(doctorname);
+        List<Doctor> doctorData = doctorRepository.findByDoctorNameContaining(doctorName);
 
         if (!doctorData.isEmpty()) {
-            doctorRepository.findByDoctornameContaining(doctorname).forEach(doctors::add);
+            doctorRepository.findByDoctorNameContaining(doctorName).forEach(doctors::add);
             return new ResponseEntity<>(doctors, HttpStatus.OK);
 
         } else {

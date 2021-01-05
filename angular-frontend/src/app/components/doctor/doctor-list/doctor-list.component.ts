@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {Doctor} from '../../../classes/doctor';
+import {DoctorService} from '../../../services/doctor.service';
+import {Router} from '@angular/router';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-doctor-list',
@@ -7,9 +12,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorListComponent implements OnInit {
 
-  constructor() { }
+  doctor: Observable<Doctor[]>;
+  searchForm;
+  constructor(private doctorServices: DoctorService, private router: Router, private formBuilder: FormBuilder) {
+    this.searchForm = this.formBuilder.group({
+      name: '',
+    });
+  }
 
   ngOnInit(): void {
+    console.log('Doctor List');
+    this.reloadData();
+  }
+
+  reloadData(){
+    this.doctor = this.doctorServices.getAll();
+    console.log(this.doctor);
+  }
+
+  deleteDoctor(id: string) {
+    this.doctorServices.delete(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
+
+doctorDetails(id: string){
+    this.router.navigate(['details', id]);
+  }
+
+  updateDoctor(id: string){
+    this.router.navigate(['update', id]);
+  }
+
+  OnSubmit(searchName){
+    console.log('Search name:');
+    console.log(searchName.name);
+    this.doctor = this.doctorServices.findByName(searchName.name);
   }
 
 }

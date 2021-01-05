@@ -32,13 +32,6 @@ public class Doctor {
         this.profilePicture = profilePicture;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getDoctorName() {
         return doctorName;

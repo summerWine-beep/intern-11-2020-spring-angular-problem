@@ -5,6 +5,7 @@ import { TutorialDetailsComponent } from './components/tutorial/tutorial-details
 import { UpdateTutorialComponent } from './components/tutorial/update-tutorial/update-tutorial.component';
 import { TutorialListComponent } from './components/tutorial/tutorial-list/tutorial-list.component';
 import {PatientListComponent} from './components/patient/patient-list/patient-list.component';
+import {DoctorListComponent} from './components/doctor/doctor-list/doctor-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'tutorial', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'details/:id', component: TutorialDetailsComponent },
   { path: 'create', component: CreateTutorialComponent },
   { path: 'update/:id', component: UpdateTutorialComponent},
-  { path: 'patients', component: PatientListComponent}
+  { path: 'patients', component: PatientListComponent},
+  { path: 'doctors', component: DoctorListComponent}
 ];
 
 @NgModule({

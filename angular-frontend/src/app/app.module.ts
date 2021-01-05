@@ -11,6 +11,7 @@ import { UpdateTutorialComponent } from './components/tutorial/update-tutorial/u
 import { TutorialListComponent } from './components/tutorial/tutorial-list/tutorial-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PatientListComponent } from './components/patient/patient-list/patient-list.component';
+import { AddReportComponent } from './components/report/add-report/add-report.component';
 // import { AddDoctorComponent } from "./doctor/add-doctor/add-doctor.component";
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PatientListComponent } from './components/patient/patient-list/patient-
     CreateTutorialComponent,
     UpdateTutorialComponent,
     TutorialListComponent,
-    PatientListComponent
+    PatientListComponent,
+    AddReportComponent
   ],
     imports: [
         RouterModule,

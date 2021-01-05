@@ -2,43 +2,50 @@ package com.example.restservice.models.doctor;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+
+@CrossOrigin
 @Document(collection = "doctors")
 public class Doctor {
     @Id
     private String id;
 
-    private String doctorname;
+    private String doctorName;
     private String speciality;
-    private String doctor_address;
-    private String hospital_name;
+    private String doctorAddress;
+    private String hospitalName;
     private String about;
-    private String profile_picture;
+    private String profilePicture;
 
-    public Doctor(){
+    public Doctor() {
 
     }
 
-    public Doctor(String doctorname, String speciality, String doctor_address, String hospital_name,
-                  String about, String profile_picture){
-        this.doctorname = doctorname;
+    public Doctor(String doctorName, String speciality, String doctorAddress, String hospitalName,
+                  String about, String profilePicture) {
+        this.doctorName = doctorName;
         this.speciality = speciality;
-        this.doctor_address = doctor_address;
-        this.hospital_name = hospital_name;
+        this.doctorAddress = doctorAddress;
+        this.hospitalName = hospitalName;
         this.about = about;
-        this.profile_picture = profile_picture;
+        this.profilePicture = profilePicture;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getDoctorname() {
-        return doctorname;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setDoctorname(String doctorname) {
-        this.doctorname = doctorname;
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
     }
 
     public String getSpeciality() {
@@ -49,20 +56,20 @@ public class Doctor {
         this.speciality = speciality;
     }
 
-    public String getDoctor_address() {
-        return doctor_address;
+    public String getDoctorAddress() {
+        return doctorAddress;
     }
 
-    public void setDoctor_address(String doctor_address) {
-        this.doctor_address = doctor_address;
+    public void setDoctorAddress(String doctorAddress) {
+        this.doctorAddress = doctorAddress;
     }
 
-    public String getHospital_name() {
-        return hospital_name;
+    public String getHospitalName() {
+        return hospitalName;
     }
 
-    public void setHospital_name(String hospital_name) {
-        this.hospital_name = hospital_name;
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
     }
 
     public String getAbout() {
@@ -73,24 +80,24 @@ public class Doctor {
         this.about = about;
     }
 
-    public String getProfile_picture() {
-        return profile_picture;
+    public String getProfilePicture() {
+        return profilePicture;
     }
 
-    public void setProfile_picture(String profile_picture) {
-        this.profile_picture = profile_picture;
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
     @Override
     public String toString() {
         return "Doctor{" +
                 "id='" + id + '\'' +
-                ", doctorname='" + doctorname + '\'' +
+                ", doctorName='" + doctorName + '\'' +
                 ", speciality='" + speciality + '\'' +
-                ", doctor_address='" + doctor_address + '\'' +
-                ", hospital_name='" + hospital_name + '\'' +
+                ", doctorAddress='" + doctorAddress + '\'' +
+                ", hospitalName='" + hospitalName + '\'' +
                 ", about='" + about + '\'' +
-                ", profile_picture='" + profile_picture + '\'' +
+                ", profilePicture='" + profilePicture + '\'' +
                 '}';
     }
 }

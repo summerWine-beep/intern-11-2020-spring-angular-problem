@@ -12,6 +12,12 @@ import { TutorialListComponent } from './components/tutorial/tutorial-list/tutor
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PatientListComponent } from './components/patient/patient-list/patient-list.component';
 import { AddReportComponent } from './components/report/add-report/add-report.component';
+import { DoctorDetailsComponent } from './components/doctor/doctor-details/doctor-details.component';
+import { DoctorListComponent } from './components/doctor/doctor-list/doctor-list.component';
+import { DeleteDoctorComponent } from './components/doctor/delete-doctor/delete-doctor.component';
+import { AddPatientComponent } from './components/patient/add-patient/add-patient.component';
+import { PatientDetailsComponent } from './components/patient/patient-details/patient-details.component';
+import { DeletePatientComponent } from './components/patient/delete-patient/delete-patient.component';
 // import { AddDoctorComponent } from "./doctor/add-doctor/add-doctor.component";
 
 @NgModule({
@@ -22,7 +28,13 @@ import { AddReportComponent } from './components/report/add-report/add-report.co
     UpdateTutorialComponent,
     TutorialListComponent,
     PatientListComponent,
-    AddReportComponent
+    AddReportComponent,
+    DoctorDetailsComponent,
+    DoctorListComponent,
+    DeleteDoctorComponent,
+    AddPatientComponent,
+    PatientDetailsComponent,
+    DeletePatientComponent
   ],
     imports: [
         RouterModule,

@@ -78,12 +78,12 @@ public class DoctorController {
     public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) {
         try {
             Doctor _doctor = doctorRepository.save(new Doctor(
-                    doctor.getDoctorname(),
+                    doctor.getDoctorName(),
                     doctor.getSpeciality(),
-                    doctor.getDoctor_address(),
-                    doctor.getHospital_name(),
+                    doctor.getDoctorAddress(),
+                    doctor.getHospitalName(),
                     doctor.getAbout(),
-                    doctor.getProfile_picture()
+                    doctor.getProfilePicture()
             ));
             return new ResponseEntity<>(_doctor, HttpStatus.CREATED);
         } catch (Exception e) {
@@ -99,28 +99,28 @@ public class DoctorController {
 
             Doctor _doctor = doctorData.get();
 
-            if (doctor.getDoctorname() != null) {
-                _doctor.setDoctorname(doctor.getDoctorname());
+            if (doctor.getDoctorName() != null) {
+                _doctor.setDoctorName(doctor.getDoctorName());
             }
 
             if (doctor.getSpeciality() != null) {
                 _doctor.setSpeciality(doctor.getSpeciality());
             }
 
-            if (doctor.getDoctor_address() != null) {
-                _doctor.setDoctor_address(doctor.getDoctor_address());
+            if (doctor.getDoctorAddress() != null) {
+                _doctor.setDoctorAddress(doctor.getDoctorAddress());
             }
 
-            if (doctor.getHospital_name() != null) {
-                _doctor.setHospital_name(doctor.getHospital_name());
+            if (doctor.getHospitalName() != null) {
+                _doctor.setHospitalName(doctor.getHospitalName());
             }
 
             if (doctor.getAbout() != null) {
                 _doctor.setAbout(doctor.getAbout());
             }
 
-            if (doctor.getProfile_picture() != null) {
-                _doctor.setProfile_picture(doctor.getProfile_picture());
+            if (doctor.getProfilePicture() != null) {
+                _doctor.setProfilePicture(doctor.getProfilePicture());
             }
 
             return new ResponseEntity<>(doctorRepository.save(_doctor), HttpStatus.OK);

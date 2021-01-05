@@ -3,6 +3,7 @@ package com.example.restservice.models.report;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Date;
 import java.util.List;
@@ -22,6 +23,9 @@ import java.util.List;
  * patient_history
  * follow_up_doctor_id
  */
+
+
+@CrossOrigin
 @Document(collection = "reports")
 public class Report {
     @Id

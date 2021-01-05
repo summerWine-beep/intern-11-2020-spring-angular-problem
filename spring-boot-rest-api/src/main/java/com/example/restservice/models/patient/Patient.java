@@ -3,12 +3,15 @@ package com.example.restservice.models.patient;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+
+@CrossOrigin
 @Document(collection = "patients")
 public class Patient {
     @Id
@@ -17,7 +20,6 @@ public class Patient {
     @CreatedDate
     private Date entrydate;
     private Date dob;
-    // private String dob;
     private Long age;
     private String gender;
     private String occupation;

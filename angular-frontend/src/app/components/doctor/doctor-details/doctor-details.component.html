@@ -1,1 +1,20 @@
-<p>doctor-details works!</p>
+<div class="row row justify-content-center align-self-center">
+  <div style="width: 400px;" *ngIf="doctor">
+    <h2>Tutorial Details</h2>
+    <div>
+      <label><b>Name: </b></label> {{doctor.doctorName}}
+    </div>
+    <div>
+      <label><b>Speciality: </b></label> {{doctor.speciality}}
+    </div>
+    <div>
+      <label><b>Address: </b></label> {{doctor.doctorAddress}}
+    </div>
+
+
+    <br>
+    <br>
+    <button (click)="updateLink()" class="btn btn-info">Update</button> <span></span>
+    <button (click)="list()" class="btn btn-primary">Back to Doctor List</button><br>
+  </div>
+</div>

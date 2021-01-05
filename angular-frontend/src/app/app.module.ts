@@ -9,11 +9,16 @@ import { TutorialDetailsComponent } from './components/tutorial/tutorial-details
 import { CreateTutorialComponent } from './components/tutorial/create-tutorial/create-tutorial.component';
 import { UpdateTutorialComponent } from './components/tutorial/update-tutorial/update-tutorial.component';
 import { TutorialListComponent } from './components/tutorial/tutorial-list/tutorial-list.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AddDoctorComponent } from './components/doctor/add-doctor/add-doctor.component';
 import { DoctorListComponent } from './components/doctor/doctor-list/doctor-list.component';
 import { DoctorDetailsComponent } from './components/doctor/doctor-details/doctor-details.component';
 import { UpdateDoctorComponent } from './components/doctor/update-doctor/update-doctor.component';
+import { AddPatientComponent } from './components/patient/add-patient/add-patient.component';
+import { PatientListComponent } from './components/patient/patient-list/patient-list.component';
+import { PatientDetailsComponent } from './components/patient/patient-details/patient-details.component';
+import { UpdatePatientComponent } from './components/patient/update-patient/update-patient.component';
+
 
 
 @NgModule({
@@ -27,6 +32,10 @@ import { UpdateDoctorComponent } from './components/doctor/update-doctor/update-
     DoctorListComponent,
     DoctorDetailsComponent,
     UpdateDoctorComponent,
+    AddPatientComponent,
+    PatientListComponent,
+    PatientDetailsComponent,
+    UpdatePatientComponent
   ],
     imports: [
         RouterModule,
@@ -34,6 +43,7 @@ import { UpdateDoctorComponent } from './components/doctor/update-doctor/update-
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        ReactiveFormsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

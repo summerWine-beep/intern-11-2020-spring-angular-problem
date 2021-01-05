@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 
-const baseUrl = 'http://localhost:8080/api/doctors';
+const baseUrl = 'http://localhost:8080/api/patients';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class DoctorService {
+export class PatientService {
 
   constructor(private http: HttpClient) { }
 
@@ -38,8 +38,13 @@ export class DoctorService {
 
   //findByTitle(title: string): Observable<any> {
   //  return this.http.get(`${baseUrl}?title=${title}`);
- // }
-  findByDoctorName(name: string): Observable<any> {
-  return this.http.get(`${baseUrl}/name/${name}`);
+  // }
+  findByPatientName(name:string) : Observable<any>{
+    return this.http.get(`${baseUrl}?name=${name}`);
   }
+
+  findByPatientNameDob(patient_name:string, patient_dob:Date): Observable<any> {
+    return this.http.post(`${baseUrl}/namedob/`,{"name":patient_name,"dob":patient_dob});
+  }
+
 }

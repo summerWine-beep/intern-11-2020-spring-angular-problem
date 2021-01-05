@@ -12,7 +12,7 @@ import { Doctor } from '../../../classes/doctor';
 })
 export class AddDoctorComponent implements OnInit {
 
-  doctor:Doctor = new Doctor();
+  doctor: Doctor = new Doctor();
   submitted = false;
 
   constructor(private doctorService: DoctorService,

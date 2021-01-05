@@ -1,168 +1,159 @@
 package com.example.restservice.models.report;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "report")
+import java.util.Date;
+import java.util.List;
 
+/**
+ * report_id
+ * patient_id
+ * doctor_id
+ * created_datetime
+ * blood_presure
+ * pulse_rate
+ * weight
+ * allergies(list)
+ * disabilities(list)
+ * medicine(list of document)
+ * diet(list of document)
+ * patient_history
+ * follow_up_doctor_id
+ */
+@Document(collection = "reports")
 public class Report {
-
     @Id
     private String id;
+    private String patientid;
+    private String doctorid;
+    @CreatedDate
+    private Date createddate;
+    private Double bloodpressure;
+    private Double pulserate;
+    private Double weight;
+    private List<String> allergies;
+    private List<String> disabilities;
+    private List<Medicine> medicines;
+    private List<Diet> diets;
+    private String patienthistory;
+    private String followupdoctorid;
 
-    private String patientId;
-    private String doctorId;
-    private String createdDatetime;
-    private String bloodPressure;
-    private String pulseRate;
-    private String weight;
-    private String allergies;
-    private String disabilities;
-    private String medicine;
-    private String diet;
-    private String patientHistory;
-    private String followupDoctorId;
-
-    public Report(){
-
-    }
-
-    public Report(String patientId, String doctorId, String createdDatetime,
-                  String bloodPressure, String pulseRate, String weight, String allergies,
-                  String disabilities, String medicine,
-                  String diet, String patientHistory, String followupDoctorId) {
-        this.patientId = patientId;
-        this.doctorId = doctorId;
-        this.createdDatetime = createdDatetime;
-        this.bloodPressure = bloodPressure;
-        this.pulseRate = pulseRate;
+    public Report(String patientid, String doctorid, Double bloodpressure, Double pulserate,
+                  Double weight, List<String> allergies, List<String> disabilities,
+                  List<Medicine> medicines, List<Diet> diets, String patienthistory, String followupdoctorid) {
+        this.patientid = patientid;
+        this.doctorid = doctorid;
+        this.bloodpressure = bloodpressure;
+        this.pulserate = pulserate;
         this.weight = weight;
         this.allergies = allergies;
         this.disabilities = disabilities;
-        this.medicine = medicine;
-        this.diet = diet;
-        this.patientHistory = patientHistory;
-        this.followupDoctorId = followupDoctorId;
+        this.medicines = medicines;
+        this.diets = diets;
+        this.patienthistory = patienthistory;
+        this.followupdoctorid = followupdoctorid;
+    }
+
+    public Report() {
+
     }
 
     public String getId() {
         return id;
     }
 
-
-    public String getPatientId() {
-        return patientId;
+    public String getPatientid() {
+        return patientid;
     }
 
-    public void setPatientId(String patientId) {
-        this.patientId = patientId;
+    public void setPatientid(String patientid) {
+        this.patientid = patientid;
     }
 
-    public String getDoctorId() {
-        return doctorId;
+    public String getDoctorid() {
+        return doctorid;
     }
 
-    public void setDoctorId(String doctorId) {
-        this.doctorId = doctorId;
+    public void setDoctorid(String doctorid) {
+        this.doctorid = doctorid;
     }
 
-    public String getCreatedDatetime() {
-        return createdDatetime;
+    public Date getCreateddate() {
+        return createddate;
     }
 
-    public void setCreatedDatetime(String createdDatetime) {
-        this.createdDatetime = createdDatetime;
+    public Double getBloodpressure() {
+        return bloodpressure;
     }
 
-    public String getBloodPressure() {
-        return bloodPressure;
+    public void setBloodpressure(Double bloodpressure) {
+        this.bloodpressure = bloodpressure;
     }
 
-    public void setBloodPressure(String bloodPressure) {
-        this.bloodPressure = bloodPressure;
+    public Double getPulserate() {
+        return pulserate;
     }
 
-    public String getPulseRate() {
-        return pulseRate;
+    public void setPulserate(Double pulserate) {
+        this.pulserate = pulserate;
     }
 
-    public void setPulseRate(String pulseRate) {
-        this.pulseRate = pulseRate;
-    }
-
-    public String getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 
-    public String getAllergies() {
+    public List<String> getAllergies() {
         return allergies;
     }
 
-    public void setAllergies(String allergies) {
+    public void setAllergies(List<String> allergies) {
         this.allergies = allergies;
     }
 
-    public String getDisabilities() {
+    public List<String> getDisabilities() {
         return disabilities;
     }
 
-    public void setDisabilities(String disabilities) {
+    public void setDisabilities(List<String> disabilities) {
         this.disabilities = disabilities;
     }
 
-    public String getMedicine() {
-        return medicine;
+    public List<Medicine> getMedicines() {
+        return medicines;
     }
 
-    public void setMedicine(String medicin) {
-        this.medicine = medicin;
+    public void setMedicines(List<Medicine> medicines) {
+        this.medicines = medicines;
     }
 
-    public String getDiet() {
-        return diet;
+    public List<Diet> getDiets() {
+        return diets;
     }
 
-    public void setDiet(String diet) {
-        this.diet = diet;
+    public void setDiets(List<Diet> diets) {
+        this.diets = diets;
     }
 
-    public String getPatientHistory() {
-        return patientHistory;
+    public String getPatienthistory() {
+        return patienthistory;
     }
 
-    public void setPatientHistory(String patientHistory) {
-        this.patientHistory = patientHistory;
+    public void setPatienthistory(String patienthistory) {
+        this.patienthistory = patienthistory;
     }
 
-    public String getFollowupDoctorId() {
-        return followupDoctorId;
+    public String getFollowupdoctorid() {
+        return followupdoctorid;
     }
 
-    public void setFollowupDoctorId(String followupDoctorId) {
-        this.followupDoctorId = followupDoctorId;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Report{" +
-                "id='" + id + '\'' +
-                ", patientId='" + patientId + '\'' +
-                ", doctorId='" + doctorId + '\'' +
-                ", createdDatetime='" + createdDatetime + '\'' +
-                ", bloodPressure='" + bloodPressure + '\'' +
-                ", pulseRate='" + pulseRate + '\'' +
-                ", weight='" + weight + '\'' +
-                ", allergies='" + allergies + '\'' +
-                ", disabilities='" + disabilities + '\'' +
-                ", medicine='" + medicine + '\'' +
-                ", diet='" + diet + '\'' +
-                ", patientHistory='" + patientHistory + '\'' +
-                ", followupDoctorId='" + followupDoctorId + '\'' +
-                '}';
+    public void setFollowupdoctorid(String followupdoctorid) {
+        this.followupdoctorid = followupdoctorid;
     }
 }
+

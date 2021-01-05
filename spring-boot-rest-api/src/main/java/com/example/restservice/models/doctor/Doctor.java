@@ -3,47 +3,42 @@ package com.example.restservice.models.doctor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "doctor")
-
+@Document(collection = "doctors")
 public class Doctor {
     @Id
     private String id;
 
-
-    private String doctorName;
+    private String doctorname;
     private String speciality;
-    private String doctorAddress;
-    private String hospitalName;
+    private String doctor_address;
+    private String hospital_name;
     private String about;
-    private String profilePicture;
+    private String profile_picture;
 
     public Doctor(){
 
     }
 
-    public Doctor(String doctorName, String speciality,
-                  String doctorAddress, String hospitalName,
-                  String about, String profilePicture)
-    {
-        this.doctorName = doctorName;
+    public Doctor(String doctorname, String speciality, String doctor_address, String hospital_name,
+                  String about, String profile_picture){
+        this.doctorname = doctorname;
         this.speciality = speciality;
-        this.doctorAddress = doctorAddress;
-        this.hospitalName = hospitalName;
+        this.doctor_address = doctor_address;
+        this.hospital_name = hospital_name;
         this.about = about;
-        this.profilePicture = profilePicture;
+        this.profile_picture = profile_picture;
     }
 
     public String getId() {
         return id;
     }
 
-
-    public String getDoctorName() {
-        return doctorName;
+    public String getDoctorname() {
+        return doctorname;
     }
 
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
+    public void setDoctorname(String doctorname) {
+        this.doctorname = doctorname;
     }
 
     public String getSpeciality() {
@@ -54,20 +49,20 @@ public class Doctor {
         this.speciality = speciality;
     }
 
-    public String getDoctorAddress() {
-        return doctorAddress;
+    public String getDoctor_address() {
+        return doctor_address;
     }
 
-    public void setDoctorAddress(String doctorAddress) {
-        this.doctorAddress = doctorAddress;
+    public void setDoctor_address(String doctor_address) {
+        this.doctor_address = doctor_address;
     }
 
-    public String getHospitalName() {
-        return hospitalName;
+    public String getHospital_name() {
+        return hospital_name;
     }
 
-    public void setHospitalName(String hospitalName) {
-        this.hospitalName = hospitalName;
+    public void setHospital_name(String hospital_name) {
+        this.hospital_name = hospital_name;
     }
 
     public String getAbout() {
@@ -78,24 +73,24 @@ public class Doctor {
         this.about = about;
     }
 
-    public String getProfilePicture() {
-        return profilePicture;
+    public String getProfile_picture() {
+        return profile_picture;
     }
 
-    public void setProfilePicture(String profilePicture) {
-        this.profilePicture = profilePicture;
+    public void setProfile_picture(String profile_picture) {
+        this.profile_picture = profile_picture;
     }
 
     @Override
     public String toString() {
         return "Doctor{" +
                 "id='" + id + '\'' +
-                ", doctorName='" + doctorName + '\'' +
+                ", doctorname='" + doctorname + '\'' +
                 ", speciality='" + speciality + '\'' +
-                ", doctorAddress='" + doctorAddress + '\'' +
-                ", hospitalName='" + hospitalName + '\'' +
+                ", doctor_address='" + doctor_address + '\'' +
+                ", hospital_name='" + hospital_name + '\'' +
                 ", about='" + about + '\'' +
-                ", profilePicture='" + profilePicture + '\'' +
+                ", profile_picture='" + profile_picture + '\'' +
                 '}';
     }
 }

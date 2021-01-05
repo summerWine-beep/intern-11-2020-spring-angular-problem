@@ -61,6 +61,24 @@ public class TutorialController {
         }
     }
 
+
+    @GetMapping("/tutorials/?title={title}")
+    public ResponseEntity<List<Tutorial>> getTutorialByTitle(@PathVariable("title") String title) {
+        try {
+            List<Tutorial> tutorials = new ArrayList<Tutorial>();
+
+            tutorialRepository.findByTitleContaining(title).forEach(tutorials::add);
+
+            if (tutorials.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+
+            return new ResponseEntity<>(tutorials, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @GetMapping("/tutorials/published")
     public ResponseEntity<List<Tutorial>> findByPublished() {
         try {
@@ -92,7 +110,7 @@ public class TutorialController {
     @PostMapping("/tutorials")
     public ResponseEntity<Tutorial> createTutorial(@RequestBody Tutorial tutorial) {
         try {
-            Tutorial _tutorial = tutorialRepository.save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), false));
+            Tutorial _tutorial = tutorialRepository.save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), tutorial.getPublished()));
             return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

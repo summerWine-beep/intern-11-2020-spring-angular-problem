@@ -20,43 +20,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.restservice.models.doctor.Doctor;
 import com.example.restservice.repository.DoctorRepository;
 
-import javax.print.Doc;
-
-//@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
-
 public class DoctorController {
+
     @Autowired
     DoctorRepository doctorRepository;
 
-    @PostMapping("/doctors")
-    public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) {
-        try {
-            Doctor _doctor = doctorRepository.save(new Doctor(
-                    doctor.getDoctorName(),
-                    doctor.getSpeciality(),
-                    doctor.getDoctorAddress(),
-                    doctor.getHospitalName(),
-                    doctor.getAbout(),
-                    doctor.getProfilePicture()
-            ));
-            return new ResponseEntity<>(_doctor, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-    }
-
     @GetMapping("/doctors")
-    public ResponseEntity<List<Doctor>> getAllDoctors(@RequestParam(required = false) String doctorName) {
+    public ResponseEntity<List<Doctor>> getAllDoctors(@RequestParam(required = false) String doctorname) {
         try {
             List<Doctor> doctors = new ArrayList<Doctor>();
 
-            if (doctorName == null) {
+            if (doctorname == null) {
                 doctorRepository.findAll().forEach(doctors::add);
-            }else {
-                doctorRepository.findByDoctorNameContaining(doctorName).forEach(doctors::add);
+            } else {
+                doctorRepository.findByDoctornameContaining(doctorname).forEach(doctors::add);
             }
 
             if (doctors.isEmpty()) {
@@ -80,13 +59,13 @@ public class DoctorController {
         }
     }
 
-    @GetMapping("/doctors/name/{doctorName}")
-    public ResponseEntity<List<Doctor>>  getDoctorByDoctorName(@PathVariable("doctorName") String doctorName) {
+    @GetMapping("/doctors/name/{doctorname}")
+    public ResponseEntity<List<Doctor>> getDoctorByDoctorname(@PathVariable("doctorname") String doctorname) {
         List<Doctor> doctors = new ArrayList<Doctor>();
-        List <Doctor> doctorData = doctorRepository.findByDoctorNameContaining(doctorName);
+        List<Doctor> doctorData = doctorRepository.findByDoctornameContaining(doctorname);
 
         if (!doctorData.isEmpty()) {
-            doctorRepository.findByDoctorNameContaining(doctorName).forEach(doctors::add);
+            doctorRepository.findByDoctornameContaining(doctorname).forEach(doctors::add);
             return new ResponseEntity<>(doctors, HttpStatus.OK);
 
         } else {
@@ -95,19 +74,55 @@ public class DoctorController {
         }
     }
 
+    @PostMapping("/doctors")
+    public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) {
+        try {
+            Doctor _doctor = doctorRepository.save(new Doctor(
+                    doctor.getDoctorname(),
+                    doctor.getSpeciality(),
+                    doctor.getDoctor_address(),
+                    doctor.getHospital_name(),
+                    doctor.getAbout(),
+                    doctor.getProfile_picture()
+            ));
+            return new ResponseEntity<>(_doctor, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @PutMapping("/doctors/{id}")
     public ResponseEntity<Doctor> updateDoctor(@PathVariable("id") String id, @RequestBody Doctor doctor) {
         Optional<Doctor> doctorData = doctorRepository.findById(id);
 
         if (doctorData.isPresent()) {
+
             Doctor _doctor = doctorData.get();
-            _doctor.setDoctorName(doctor.getDoctorName());
-            _doctor.setSpeciality(doctor.getSpeciality());
-            _doctor.setDoctorAddress(doctor.getDoctorAddress());
-            _doctor.setHospitalName(doctor.getHospitalName());
-            _doctor.setAbout(doctor.getAbout());
-            _doctor.setProfilePicture(doctor.getProfilePicture());
+
+            if (doctor.getDoctorname() != null) {
+                _doctor.setDoctorname(doctor.getDoctorname());
+            }
+
+            if (doctor.getSpeciality() != null) {
+                _doctor.setSpeciality(doctor.getSpeciality());
+            }
+
+            if (doctor.getDoctor_address() != null) {
+                _doctor.setDoctor_address(doctor.getDoctor_address());
+            }
+
+            if (doctor.getHospital_name() != null) {
+                _doctor.setHospital_name(doctor.getHospital_name());
+            }
+
+            if (doctor.getAbout() != null) {
+                _doctor.setAbout(doctor.getAbout());
+            }
+
+            if (doctor.getProfile_picture() != null) {
+                _doctor.setProfile_picture(doctor.getProfile_picture());
+            }
+
             return new ResponseEntity<>(doctorRepository.save(_doctor), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -135,5 +150,5 @@ public class DoctorController {
 
     }
 
-
 }
+

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import { Doctor } from '../../../classes/doctor';
 import {DoctorService} from '../../../services/doctor.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 
@@ -15,11 +15,13 @@ import {Router} from '@angular/router';
 
 export class AddDoctorComponent implements OnInit {
 
-  doctor: Doctor = new Doctor();
+  doctor: object = new Doctor();
   submitted = false;
+  doctorID: string;
 
 
-  constructor(private doctorService: DoctorService, private router: Router) { }
+  constructor(private doctorService: DoctorService,
+              private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -33,7 +35,12 @@ export class AddDoctorComponent implements OnInit {
     this.doctorService
       .create(this.doctor).subscribe(data => {
         console.log(data);
+        this.doctor = data;
+        // @ts-ignore
+        this.doctorID = this.doctor.id;
+        console.log(this.doctorID);
         this.doctor = new Doctor();
+        this.doctorService.sendListUpdateAlert('Added');
         console.log(this.doctor);
         this.gotoList();
       },
@@ -46,7 +53,7 @@ export class AddDoctorComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['doctors']);
+    this.router.navigate(['doctors/details', this.doctorID]);
   }
 
 }

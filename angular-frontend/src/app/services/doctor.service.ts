@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
+import { Doctor } from '../classes/doctor';
 
 
 const baseUrl = 'http://localhost:8080/api/doctors';
@@ -8,9 +9,15 @@ const baseUrl = 'http://localhost:8080/api/doctors';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DoctorService {
+  private subject = new Subject<any>();
 
   constructor(private http: HttpClient) { }
+
+  sendListUpdateAlert(message: string){
+    this.subject.next({text: message});
+  }
 
   getAll(): Observable<any> {
     return this.http.get(baseUrl);

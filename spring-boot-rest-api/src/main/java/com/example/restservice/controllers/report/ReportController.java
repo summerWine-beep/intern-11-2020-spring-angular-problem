@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class ReportController {
 
@@ -46,9 +47,9 @@ public class ReportController {
         }
     }
 
-    @GetMapping("/reports/patient/{patientid}")
-    public ResponseEntity<Report> getReportByPatientId(@PathVariable("patientid") String patientid) {
-        Optional<Report> reportData = reportRepository.findByPatientid(patientid);
+    @GetMapping("/reports/patient/{patientId}")
+    public ResponseEntity<Report> getReportByPatientId(@PathVariable("patientId") String patientId) {
+        Optional<Report> reportData = reportRepository.findByPatientid(patientId);
 
         if (reportData.isPresent()) {
             return new ResponseEntity<>(reportData.get(), HttpStatus.OK);
@@ -57,27 +58,6 @@ public class ReportController {
         }
     }
 
-///*
-//
-//    @Autowired
-//    PatientRepository patientRepository;
-//
-//    @GetMapping("/reports/namedob/{name}/{dob}")
-//    public ResponseEntity<Report> getReportByPatientNameandDob(@PathVariable("name") String name, @PathVariable("dob") String dob) {
-//        Optional<Patient> patientData = patientRepository.findByNameContainingAndDob(name, dob);
-//        if (patientData.isPresent()) {
-//            Patient patient = patientData.get();
-//            Optional<Report> reportData = reportRepository.findByPatientid(patient.getId());
-//            if (reportData.isPresent()) {
-//                return new ResponseEntity<>(reportData.get(), HttpStatus.OK);
-//            } else {
-//                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//            }
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-//*/
 
 
     @Autowired

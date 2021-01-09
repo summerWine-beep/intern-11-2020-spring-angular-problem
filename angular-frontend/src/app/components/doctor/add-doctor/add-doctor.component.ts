@@ -15,10 +15,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 export class AddDoctorComponent implements OnInit {
 
-  doctor: object = new Doctor();
+  doctor: Doctor = new Doctor();
   submitted = false;
-  doctorID: string;
-
 
   constructor(private doctorService: DoctorService,
               private router: Router, private route: ActivatedRoute) { }
@@ -35,12 +33,7 @@ export class AddDoctorComponent implements OnInit {
     this.doctorService
       .create(this.doctor).subscribe(data => {
         console.log(data);
-        this.doctor = data;
-        // @ts-ignore
-        this.doctorID = this.doctor.id;
-        console.log(this.doctorID);
         this.doctor = new Doctor();
-        this.doctorService.sendListUpdateAlert('Added');
         console.log(this.doctor);
         this.gotoList();
       },
@@ -53,7 +46,7 @@ export class AddDoctorComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['doctors/details', this.doctorID]);
+    this.router.navigate(['/doctors']);
   }
 
 }

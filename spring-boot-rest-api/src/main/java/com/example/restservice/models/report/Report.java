@@ -25,7 +25,6 @@ import java.util.List;
  */
 
 
-@CrossOrigin
 @Document(collection = "reports")
 public class Report {
     @Id
@@ -44,7 +43,7 @@ public class Report {
     private String patientHistory;
     private String followupDoctorId;
 
-    public Report(String patientId, String doctorId, Double bloodPressure, Double pulseRate, Double weight, List<String> allergies, List<String> disabilities, List<Medicine> medicines, List<Diet> diets, String patientHistory, String followupDoctorId){
+    public Report(){
 
     }
 

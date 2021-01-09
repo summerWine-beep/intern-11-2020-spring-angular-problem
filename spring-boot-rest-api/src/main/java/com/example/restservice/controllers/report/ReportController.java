@@ -49,7 +49,7 @@ public class ReportController {
 
     @GetMapping("/reports/patient/{patientId}")
     public ResponseEntity<Report> getReportByPatientId(@PathVariable("patientId") String patientId) {
-        Optional<Report> reportData = reportRepository.findByPatientid(patientId);
+        Optional<Report> reportData = reportRepository.findByPatientId(patientId);
 
         if (reportData.isPresent()) {
             return new ResponseEntity<>(reportData.get(), HttpStatus.OK);
@@ -68,7 +68,7 @@ public class ReportController {
         Optional<Patient> patientData = patientRepository.findByNameContainingAndDob(p.getName(), p.getDob());
         if (patientData.isPresent()) {
             Patient patient = patientData.get();
-            Optional<Report> reportData = reportRepository.findByPatientid(patient.getId());
+            Optional<Report> reportData = reportRepository.findByPatientId(patient.getId());
             if (reportData.isPresent()) {
                 return new ResponseEntity<>(reportData.get(), HttpStatus.OK);
             } else {
@@ -86,6 +86,7 @@ public class ReportController {
             Report _report = reportRepository.save(new Report(
                     report.getPatientId(),
                     report.getDoctorId(),
+                    report.getCreatedDate(),
                     report.getBloodPressure(),
                     report.getPulseRate(),
                     report.getWeight(),

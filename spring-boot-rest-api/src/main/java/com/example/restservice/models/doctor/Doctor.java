@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
-@CrossOrigin
+
 @Document(collection = "doctors")
 public class Doctor {
     @Id
@@ -31,7 +31,6 @@ public class Doctor {
         this.about = about;
         this.profilePicture = profilePicture;
     }
-
 
     public String getDoctorName() {
         return doctorName;

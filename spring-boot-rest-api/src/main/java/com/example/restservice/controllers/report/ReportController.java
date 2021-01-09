@@ -104,17 +104,17 @@ public class ReportController {
     public ResponseEntity<Report> createReport(@RequestBody Report report) {
         try {
             Report _report = reportRepository.save(new Report(
-                    report.getPatientid(),
-                    report.getDoctorid(),
-                    report.getBloodpressure(),
-                    report.getPulserate(),
+                    report.getPatientId(),
+                    report.getDoctorId(),
+                    report.getBloodPressure(),
+                    report.getPulseRate(),
                     report.getWeight(),
                     report.getAllergies(),
                     report.getDisabilities(),
                     report.getMedicines(),
                     report.getDiets(),
-                    report.getPatienthistory(),
-                    report.getFollowupdoctorid()
+                    report.getPatientHistory(),
+                    report.getFollowupDoctorId()
             ));
             return new ResponseEntity<>(_report, HttpStatus.CREATED);
         } catch (Exception e) {
@@ -129,16 +129,16 @@ public class ReportController {
         if (reportData.isPresent()) {
             Report _report = reportData.get();
 
-            if (report.getPatientid() != null) {
-                _report.setPatientid(report.getPatientid());
+            if (report.getPatientId() != null) {
+                _report.setPatientId(report.getPatientId());
             }
 
-            if (report.getBloodpressure() != null) {
-                _report.setBloodpressure(report.getBloodpressure());
+            if (report.getBloodPressure() != null) {
+                _report.setBloodPressure(report.getBloodPressure());
             }
 
-            if (report.getPulserate() != null) {
-                _report.setPulserate(report.getPulserate());
+            if (report.getPulseRate() != null) {
+                _report.setPulseRate(report.getPulseRate());
             }
 
             if (report.getWeight() != null) {
@@ -161,12 +161,12 @@ public class ReportController {
                 _report.setDiets(report.getDiets());
             }
 
-            if (report.getPatienthistory() != null) {
-                _report.setPatienthistory(report.getPatienthistory());
+            if (report.getPatientHistory() != null) {
+                _report.setPatientHistory(report.getPatientHistory());
             }
 
-            if (report.getFollowupdoctorid() != null) {
-                _report.setFollowupdoctorid(report.getFollowupdoctorid());
+            if (report.getFollowupDoctorId() != null) {
+                _report.setFollowupDoctorId(report.getFollowupDoctorId());
             }
 
             return new ResponseEntity<>(reportRepository.save(_report), HttpStatus.OK);

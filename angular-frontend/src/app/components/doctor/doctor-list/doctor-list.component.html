@@ -2,8 +2,11 @@
   <div class="panel-heading">
     <h2>Tutorial List</h2>
   </div>
-  <form [formGroup]="searchForm" (ngSubmit)="OnSubmit(searchForm.value)">
-    <input type="text" id="name" formControlName="name">
+  <form class="form-inline d-flex md-form form-sm active-pink active-pink-2 mt-2"
+    [formGroup]="searchForm" (ngSubmit)="OnSubmit(searchForm.value)">
+
+    <b>Doctor Search By Name</b>
+    <input class="form-control mr-sm-2" type="text" placeholder="Enter Doctor Name" id="doctorName" formControlName="doctorName">
     <button type="submit">Search</button>
   </form>
   <div class="panel-body">
@@ -13,17 +16,21 @@
         <th>Name</th>
         <th>Speciality</th>
         <th>Address</th>
+      <!--  <th>Hospital Name</th>
+        <th>about</th>
+        <th>Profile Picture</th> -->
+
         <th></th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let doctor of doctor | async">
+      <tr *ngFor="let doctor of doctors | async">
         <td>{{doctor.doctorName}}</td>
         <td>{{doctor.speciality}}</td>
         <td>{{doctor.doctorAddress}}</td>
-        <td>{{doctor.hospitalName}}</td>
+       <!-- <td>{{doctor.hospitalName}}</td>
         <td>{{doctor.about}}</td>
-        <td>{{doctor.profilePicture}}</td>
+        <td>{{doctor.profilePicture}}</td> -->
 
         <td><button (click)="deleteDoctor(doctor.id)" class="btn btn-danger">Delete</button>
           <button (click)="updateDoctor(doctor.id)" class="btn btn-info" style="margin-left: 10px">Update</button>

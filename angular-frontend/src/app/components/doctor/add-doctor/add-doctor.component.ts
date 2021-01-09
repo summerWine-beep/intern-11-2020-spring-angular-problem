@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable, observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import { Doctor } from '../../../classes/doctor';
 import {DoctorService} from '../../../services/doctor.service';
 import {Router} from '@angular/router';
-import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
 
 
 
@@ -16,13 +15,38 @@ import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
 
 export class AddDoctorComponent implements OnInit {
 
-  doctor: Observable<Doctor[]>;
+  doctor: Doctor = new Doctor();
   submitted = false;
 
 
   constructor(private doctorService: DoctorService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  }
+
+  newDoctor(): void {
+    this.submitted = false;
+    this.doctor = new Doctor();
+  }
+
+  save() {
+    this.doctorService
+      .create(this.doctor).subscribe(data => {
+        console.log(data);
+        this.doctor = new Doctor();
+        console.log(this.doctor);
+        this.gotoList();
+      },
+      error => console.log(error));
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();
+  }
+
+  gotoList() {
+    this.router.navigate(['doctors']);
   }
 
 }

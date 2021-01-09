@@ -16,9 +16,10 @@ const routes: Routes = [
   { path: 'create', component: CreateTutorialComponent },
   { path: 'update/:id', component: UpdateTutorialComponent},
   { path: 'patients', component: PatientListComponent},
+  { path: '', redirectTo: 'doctor', pathMatch: 'full' },
   { path: 'doctors', component: DoctorListComponent},
   { path: 'doctors/add', component: AddDoctorComponent},
-  { path: 'details/:id', component: DoctorDetailsComponent }
+  { path: 'doctorDetails/:id', component: DoctorDetailsComponent }
 ];
 
 @NgModule({

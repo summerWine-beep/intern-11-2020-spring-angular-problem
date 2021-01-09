@@ -30,78 +30,89 @@ import java.util.List;
 public class Report {
     @Id
     private String id;
-    private String patientid;
-    private String doctorid;
+    private String patientId;
+    private String doctorId;
     @CreatedDate
-    private Date createddate;
-    private Double bloodpressure;
-    private Double pulserate;
+    private Date createdDate;
+    private Double bloodPressure;
+    private Double pulseRate;
     private Double weight;
     private List<String> allergies;
     private List<String> disabilities;
     private List<Medicine> medicines;
     private List<Diet> diets;
-    private String patienthistory;
-    private String followupdoctorid;
+    private String patientHistory;
+    private String followupDoctorId;
 
-    public Report(String patientid, String doctorid, Double bloodpressure, Double pulserate,
+    public Report(String patientId, String doctorId, Double bloodPressure, Double pulseRate, Double weight, List<String> allergies, List<String> disabilities, List<Medicine> medicines, List<Diet> diets, String patientHistory, String followupDoctorId){
+
+    }
+
+    public Report(String patientId, String doctorId,
+                  Date createdDate, Double bloodPressure, Double pulseRate,
                   Double weight, List<String> allergies, List<String> disabilities,
-                  List<Medicine> medicines, List<Diet> diets, String patienthistory, String followupdoctorid) {
-        this.patientid = patientid;
-        this.doctorid = doctorid;
-        this.bloodpressure = bloodpressure;
-        this.pulserate = pulserate;
+                  List<Medicine> medicines, List<Diet> diets, String patientHistory,
+                  String followupDoctorId) {
+        this.patientId = patientId;
+        this.doctorId = doctorId;
+        this.createdDate = createdDate;
+        this.bloodPressure = bloodPressure;
+        this.pulseRate = pulseRate;
         this.weight = weight;
         this.allergies = allergies;
         this.disabilities = disabilities;
         this.medicines = medicines;
         this.diets = diets;
-        this.patienthistory = patienthistory;
-        this.followupdoctorid = followupdoctorid;
-    }
-
-    public Report() {
-
+        this.patientHistory = patientHistory;
+        this.followupDoctorId = followupDoctorId;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getPatientid() {
-        return patientid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setPatientid(String patientid) {
-        this.patientid = patientid;
+    public String getPatientId() {
+        return patientId;
     }
 
-    public String getDoctorid() {
-        return doctorid;
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
     }
 
-    public void setDoctorid(String doctorid) {
-        this.doctorid = doctorid;
+    public String getDoctorId() {
+        return doctorId;
     }
 
-    public Date getCreateddate() {
-        return createddate;
+    public void setDoctorId(String doctorId) {
+        this.doctorId = doctorId;
     }
 
-    public Double getBloodpressure() {
-        return bloodpressure;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setBloodpressure(Double bloodpressure) {
-        this.bloodpressure = bloodpressure;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public Double getPulserate() {
-        return pulserate;
+    public Double getBloodPressure() {
+        return bloodPressure;
     }
 
-    public void setPulserate(Double pulserate) {
-        this.pulserate = pulserate;
+    public void setBloodPressure(Double bloodPressure) {
+        this.bloodPressure = bloodPressure;
+    }
+
+    public Double getPulseRate() {
+        return pulseRate;
+    }
+
+    public void setPulseRate(Double pulseRate) {
+        this.pulseRate = pulseRate;
     }
 
     public Double getWeight() {
@@ -144,20 +155,39 @@ public class Report {
         this.diets = diets;
     }
 
-    public String getPatienthistory() {
-        return patienthistory;
+    public String getPatientHistory() {
+        return patientHistory;
     }
 
-    public void setPatienthistory(String patienthistory) {
-        this.patienthistory = patienthistory;
+    public void setPatientHistory(String patientHistory) {
+        this.patientHistory = patientHistory;
     }
 
-    public String getFollowupdoctorid() {
-        return followupdoctorid;
+    public String getFollowupDoctorId() {
+        return followupDoctorId;
     }
 
-    public void setFollowupdoctorid(String followupdoctorid) {
-        this.followupdoctorid = followupdoctorid;
+    public void setFollowupDoctorId(String followupDoctorId) {
+        this.followupDoctorId = followupDoctorId;
     }
+
+    @Override
+    public String toString() {
+        return "Report{" +
+                "id='" + id + '\'' +
+                ", patientId='" + patientId + '\'' +
+                ", doctorId='" + doctorId + '\'' +
+                ", createdDate=" + createdDate +
+                ", bloodPressure=" + bloodPressure +
+                ", pulseRate=" + pulseRate +
+                ", weight=" + weight +
+                ", allergies=" + allergies +
+                ", disabilities=" + disabilities +
+                ", medicines=" + medicines +
+                ", diets=" + diets +
+                ", patientHistory='" + patientHistory + '\'' +
+                ", followupDoctorId='" + followupDoctorId + '\'' +
+                '}';
+    }
+
 }
-

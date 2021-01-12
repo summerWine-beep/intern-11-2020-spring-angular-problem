@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import { Doctor } from '../../../classes/doctor';
 import {DoctorService} from '../../../services/doctor.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 
 
 

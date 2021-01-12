@@ -16,7 +16,7 @@ export class DoctorListComponent implements OnInit {
   searchForm;
   constructor(private doctorServices: DoctorService, private router: Router, private formBuilder: FormBuilder) {
     this.searchForm = this.formBuilder.group({
-      name: '',
+      doctorName: '',
     });
   }
 

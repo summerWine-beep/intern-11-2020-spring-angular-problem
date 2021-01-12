@@ -29,8 +29,7 @@ export class UpdateTutorialComponent implements OnInit {
   }
 
   updateTutorial(){
-    // this.tutorial = new Tutorial();
-    // this.id = this.route.snapshot.params['id'];
+    
     this.tutorialService.update(this.id, this.tutorial).subscribe(
       data => {
         console.log(data);

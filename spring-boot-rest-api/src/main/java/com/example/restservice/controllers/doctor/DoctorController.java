@@ -66,7 +66,6 @@ public class DoctorController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
     @PostMapping("/doctors")
     public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) {
         try {

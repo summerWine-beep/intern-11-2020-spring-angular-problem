@@ -18,6 +18,7 @@ import { AddPatientComponent } from './components/patient/add-patient/add-patien
 import { PatientDetailsComponent } from './components/patient/patient-details/patient-details.component';
 import { DeletePatientComponent } from './components/patient/delete-patient/delete-patient.component';
 import { AddDoctorComponent } from './components/doctor/add-doctor/add-doctor.component';
+import { DoctorUpdateComponent } from './components/doctor/doctor-update/doctor-update.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AddDoctorComponent } from './components/doctor/add-doctor/add-doctor.co
     AddPatientComponent,
     PatientDetailsComponent,
     DeletePatientComponent,
-    AddDoctorComponent
+    AddDoctorComponent,
+    DoctorUpdateComponent
   ],
     imports: [
         RouterModule,

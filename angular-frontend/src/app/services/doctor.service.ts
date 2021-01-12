@@ -43,7 +43,7 @@ export class DoctorService {
     return this.http.delete(baseUrl);
   }
 
-  findByName(doctorName: string): Observable<any> {
-    return this.http.get(`${baseUrl}/?name=${doctorName}`);
+  findByDoctorName(name: string): Observable<any> {
+    return this.http.get(`${baseUrl}/name/${name}`);
   }
 }

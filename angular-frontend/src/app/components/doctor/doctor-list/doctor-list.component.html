@@ -1,12 +1,9 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Tutorial List</h2>
+    <h2>Doctor List</h2>
   </div>
-  <form class="form-inline d-flex md-form form-sm active-pink active-pink-2 mt-2"
-    [formGroup]="searchForm" (ngSubmit)="OnSubmit(searchForm.value)">
-
-    <b>Doctor Search By Name</b>
-    <input class="form-control mr-sm-2" type="text" placeholder="Enter Doctor Name" id="doctorName" formControlName="doctorName">
+  <form [formGroup]="searchForm" (ngSubmit)="OnSubmit(searchForm.value)">
+    <input type="text" id="doctorName" formControlName="doctorName">
     <button type="submit">Search</button>
   </form>
   <div class="panel-body">
@@ -32,8 +29,8 @@
         <td>{{doctor.about}}</td>
         <td>{{doctor.profilePicture}}</td> -->
 
-        <td><button (click)="deleteDoctor(doctor.id)" class="btn btn-danger">Delete</button>
-          <!--<button (click)="updateDoctor(doctor.id)" class="btn btn-info" style="margin-left: 10px">Update</button>-->
+        <td><button (click)="deleteDoctor(doctor.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+          <button (click)="updateDoctor(doctor.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
           <button (click)="doctorDetails(doctor.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
         </td>
       </tr>

@@ -45,13 +45,13 @@ doctorDetails(id: string){
   }
 
   updateDoctor(id: string){
-    this.router.navigate(['updateDoctor' + id]);
+    this.router.navigate(['updateDoctor/' + id]);
   }
 
   OnSubmit(searchName){
     console.log('Search Doctor Name:');
     console.log(searchName.doctorName);
-    this.doctors = this.doctorServices.findByName(searchName.doctorName);
+    this.doctors = this.doctorServices.findByDoctorName(searchName.doctorName);
   }
 
 }

@@ -8,11 +8,11 @@ import {Doctor} from "../../../classes/doctor";
 
 @Component({
   selector: 'app-add-patient',
-  templateUrl: './add-patient.component.html',
+  templateUrl: `./add-patient.component.html`,
   styleUrls: ['./add-patient.component.css']
 })
 export class AddPatientComponent implements OnInit {
-  patient: Patient = new Patient();
+  patients: Patient = new Patient();
   submitted = false;
   doctors: Observable<Doctor[]>;
 
@@ -24,15 +24,15 @@ export class AddPatientComponent implements OnInit {
   }
   newPatient(): void {
     this.submitted = false;
-    this.patient = new Patient();
+    this.patients = new Patient();
   }
 
   save() {
     this.patientService
-      .create(this.patient).subscribe(data => {
+      .create(this.patients).subscribe(data => {
         console.log(data);
-        this.patient = new Patient();
-        console.log(this.patient);
+        this.patients = new Patient();
+        console.log(this.patients);
         this.gotoList();
       },
       error => console.log(error));

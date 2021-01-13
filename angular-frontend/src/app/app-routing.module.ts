@@ -14,6 +14,7 @@ import {PatientUpdateComponent} from './components/patient/patient-update/patien
 import {PatientDetailsComponent} from './components/patient/patient-details/patient-details.component';
 import {AddReportComponent} from "./components/report/add-report/add-report.component";
 import {ReportListComponent} from "./components/report/report-list/report-list.component";
+import {ReportDetailsComponent} from "./components/report/report-details/report-details.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'tutorial', pathMatch: 'full' },
@@ -36,7 +37,8 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'report', pathMatch: 'full'},
   { path: 'createReport', component: AddReportComponent},
-  { path: 'reports', component: ReportListComponent}
+  { path: 'reports', component: ReportListComponent},
+  { path: 'updateReport/:id', component: ReportDetailsComponent}
 
 ];
 

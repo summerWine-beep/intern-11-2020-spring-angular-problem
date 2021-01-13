@@ -10,6 +10,8 @@ import {AddDoctorComponent} from './components/doctor/add-doctor/add-doctor.comp
 import {DoctorDetailsComponent} from './components/doctor/doctor-details/doctor-details.component';
 import {DoctorUpdateComponent} from './components/doctor/doctor-update/doctor-update.component';
 import {AddPatientComponent} from './components/patient/add-patient/add-patient.component';
+import {PatientUpdateComponent} from './components/patient/patient-update/patient-update.component';
+import {PatientDetailsComponent} from './components/patient/patient-details/patient-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'tutorial', pathMatch: 'full' },
@@ -26,7 +28,9 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'patient', pathMatch: 'full'},
   { path: 'patients/add', component: AddPatientComponent},
-  { path: 'patients', component: PatientListComponent}
+  { path: 'patients', component: PatientListComponent},
+  { path: 'updatePatient/:id', component: PatientUpdateComponent},
+  { path: 'patientDetails/:id', component: PatientDetailsComponent}
 ];
 
 @NgModule({

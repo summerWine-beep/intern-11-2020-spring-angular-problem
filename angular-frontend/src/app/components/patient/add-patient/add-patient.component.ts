@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {PatientService} from "../../../services/patient.service";
-import {DoctorService} from "../../../services/doctor.service";
-import {Route, Router} from "@angular/router";
-import {Patient} from "../../../classes/patient";
-import {Observable} from "rxjs";
-import {Doctor} from "../../../classes/doctor";
+import {PatientService} from '../../../services/patient.service';
+import {DoctorService} from '../../../services/doctor.service';
+import {Route, Router} from '@angular/router';
+import {Patient} from '../../../classes/patient';
+import {Observable} from 'rxjs';
+import {Doctor} from '../../../classes/doctor';
 
 @Component({
   selector: 'app-add-patient',

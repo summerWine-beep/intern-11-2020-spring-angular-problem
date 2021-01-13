@@ -1,5 +1,7 @@
 package com.example.restservice.controllers.patient;
 
+import java.sql.Date;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.restservice.models.patient.Patient;
 import com.example.restservice.repository.PatientRepository;
 
-@RestController
 @CrossOrigin
+@RestController
 @RequestMapping("/api")
 public class PatientController {
 
@@ -27,7 +29,7 @@ public class PatientController {
 
             if (name == null) {
                 patientRepository.findAll().forEach(patients::add);
-            } else {
+            }else {
                 patientRepository.findByNameContaining(name).forEach(patients::add);
             }
 
@@ -52,10 +54,11 @@ public class PatientController {
         }
     }
 
-    @GetMapping("/patients/name/{name}")
-    public ResponseEntity<List<Patient>> getByPatientname(@PathVariable("name") String name) {
+    @GetMapping("/patients/?name={name}")
+    public ResponseEntity<List<Patient>>  getByPatientname(@PathVariable("name") String name) {
         List<Patient> patients = new ArrayList<Patient>();
-        List<Patient> patientData = patientRepository.findByNameContaining(name);
+        System.out.println(name);
+        List <Patient> patientData = patientRepository.findByNameContaining(name);
 
         if (!patientData.isEmpty()) {
             patientRepository.findByNameContaining(name).forEach(patients::add);
@@ -66,20 +69,25 @@ public class PatientController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @PostMapping("/patients/dob")
+    public ResponseEntity<List<Patient>>  postByPatientDob( @RequestBody Patient patient ) throws ParseException {
+        List<Patient> patients = new ArrayList<Patient>();
 
-    //    @GetMapping("/patients/namedob/{name}/{dob}")
-//    public ResponseEntity<Patient> getByPatientNameandDob(@PathVariable("name") String name, @PathVariable("dob") String dob) {
-//        Optional<Patient> patientData = patientRepository.findByNameContainingAndDob(name,dob);
-//
-//        if (patientData.isPresent()) {
-//            return new ResponseEntity<>(patientData.get(), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
+        List<Patient> patientData = patientRepository.findByDobContaining(patient.getDob());
+
+        if (!patientData.isEmpty()) {
+            patientRepository.findByDobContaining(patient.getDob()).forEach(patients::add);
+            return new ResponseEntity<>(patients, HttpStatus.OK);
+
+        } else {
+
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PostMapping("/patients/namedob")
-    public ResponseEntity<Patient> getByPatientNameandDob(@RequestBody Patient p) {
-        Optional<Patient> patientData = patientRepository.findByNameContainingAndDob(p.getName(), p.getDob());
+    public ResponseEntity<Patient> postByPatientNameandDob(@RequestBody Patient patient) {
+        Optional<Patient> patientData = patientRepository.findByNameContainingAndDob(patient.getName(), patient.getDob());
 
         if (patientData.isPresent()) {
             return new ResponseEntity<>(patientData.get(), HttpStatus.OK);
@@ -88,12 +96,14 @@ public class PatientController {
         }
     }
 
+
     @PostMapping("/patients")
     public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {
         try {
             Patient _patient = patientRepository.save(new Patient(
                     patient.getName(),
                     patient.getDob(),
+                    patient.getAge(),
                     patient.getGender(),
                     patient.getOccupation(),
                     patient.getHealthinsuranceno(),
@@ -111,50 +121,18 @@ public class PatientController {
     @PutMapping("/patients/{id}")
     public ResponseEntity<Patient> updatePatient(@PathVariable("id") String id, @RequestBody Patient patient) {
         Optional<Patient> patientData = patientRepository.findById(id);
-
         if (patientData.isPresent()) {
             Patient _patient = patientData.get();
-
-            if (patient.getName() != null) {
-                _patient.setName(patient.getName());
-            }
-
-            if (patient.getDob() != null) {
-                _patient.setDob(patient.getDob());
-            }
-
-            if (patient.getAge() != null) {
-                _patient.setAge(patient.getAge());
-            }
-
-            if (patient.getGender() != null) {
-                _patient.setGender(patient.getGender());
-            }
-
-            if (patient.getOccupation() != null) {
-                _patient.setOccupation(patient.getOccupation());
-            }
-
-            if (patient.getHealthinsuranceno() != null) {
-                _patient.setHealthinsuranceno(patient.getHealthinsuranceno());
-            }
-
-            if (patient.getHealthcareprovider() != null) {
-                _patient.setHealthcareprovider(patient.getHealthcareprovider());
-            }
-
-            if (patient.getPatientaddress() != null) {
-                _patient.setPatientaddress(patient.getPatientaddress());
-            }
-
-            if (patient.getContact() != null) {
-                _patient.setContact(patient.getContact());
-            }
-
-            if (patient.getDoctorid() != null) {
-                _patient.setDoctorid(patient.getDoctorid());
-            }
-
+            _patient.setName(patient.getName());
+            _patient.setDob(patient.getDob());
+            _patient.setAge(patient.getAge());
+            _patient.setGender(patient.getGender());
+            _patient.setOccupation(patient.getOccupation());
+            _patient.setHealthinsuranceno(patient.getHealthinsuranceno());
+            _patient.setHealthcareprovider(patient.getHealthcareprovider());
+            _patient.setPatientaddress(patient.getPatientaddress());
+            _patient.setContact(patient.getContact());
+            _patient.setDoctorid(patient.getDoctorid());
             return new ResponseEntity<>(patientRepository.save(_patient), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

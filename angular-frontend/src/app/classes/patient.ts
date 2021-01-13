@@ -1,7 +1,6 @@
 export class Patient {
   id: string;
   name: string;
-  entrydate: Date;
   dob: Date;
   age: number;
   gender: string;

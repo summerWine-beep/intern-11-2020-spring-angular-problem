@@ -9,6 +9,7 @@ import {DoctorListComponent} from './components/doctor/doctor-list/doctor-list.c
 import {AddDoctorComponent} from './components/doctor/add-doctor/add-doctor.component';
 import {DoctorDetailsComponent} from './components/doctor/doctor-details/doctor-details.component';
 import {DoctorUpdateComponent} from './components/doctor/doctor-update/doctor-update.component';
+import {AddPatientComponent} from './components/patient/add-patient/add-patient.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'tutorial', pathMatch: 'full' },
@@ -16,12 +17,16 @@ const routes: Routes = [
   { path: 'details/:id', component: TutorialDetailsComponent },
   { path: 'create', component: CreateTutorialComponent },
   { path: 'update/:id', component: UpdateTutorialComponent},
-  { path: 'patients', component: PatientListComponent},
+
   { path: '', redirectTo: 'doctor', pathMatch: 'full' },
   { path: 'doctors', component: DoctorListComponent},
   { path: 'doctors/add', component: AddDoctorComponent},
   { path: 'doctorDetails/:id', component: DoctorDetailsComponent },
-  { path: 'updateDoctor/:id', component: DoctorUpdateComponent}
+  { path: 'updateDoctor/:id', component: DoctorUpdateComponent},
+
+  { path: '', redirectTo: 'patient', pathMatch: 'full'},
+  { path: 'patients/add', component: AddPatientComponent},
+  { path: 'patients', component: PatientListComponent}
 ];
 
 @NgModule({

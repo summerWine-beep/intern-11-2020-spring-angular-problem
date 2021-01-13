@@ -14,11 +14,11 @@ import { PatientListComponent } from './components/patient/patient-list/patient-
 import { AddReportComponent } from './components/report/add-report/add-report.component';
 import { DoctorDetailsComponent } from './components/doctor/doctor-details/doctor-details.component';
 import { DoctorListComponent } from './components/doctor/doctor-list/doctor-list.component';
-import { AddPatientComponent } from './components/patient/add-patient/add-patient.component';
 import { PatientDetailsComponent } from './components/patient/patient-details/patient-details.component';
-import { DeletePatientComponent } from './components/patient/delete-patient/delete-patient.component';
 import { AddDoctorComponent } from './components/doctor/add-doctor/add-doctor.component';
 import { DoctorUpdateComponent } from './components/doctor/doctor-update/doctor-update.component';
+import { PatientUpdateComponent } from './components/patient/patient-update/patient-update.component';
+import { AddPatientComponent } from './components/patient/add-patient/add-patient.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +31,11 @@ import { DoctorUpdateComponent } from './components/doctor/doctor-update/doctor-
     AddReportComponent,
     DoctorDetailsComponent,
     DoctorListComponent,
-    AddPatientComponent,
     PatientDetailsComponent,
-    DeletePatientComponent,
     AddDoctorComponent,
-    DoctorUpdateComponent
+    DoctorUpdateComponent,
+    PatientUpdateComponent,
+    AddPatientComponent
   ],
     imports: [
         RouterModule,

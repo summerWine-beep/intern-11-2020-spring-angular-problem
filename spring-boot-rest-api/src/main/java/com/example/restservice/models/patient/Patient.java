@@ -3,24 +3,22 @@ package com.example.restservice.models.patient;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-
-@CrossOrigin
 @Document(collection = "patients")
 public class Patient {
     @Id
     private String id;
+
     private String name;
+
     @CreatedDate
-    private Date entrydate;
+    private LocalDate entrydate = LocalDate.now();
+
     private Date dob;
-    private Long age;
+    private Integer age;
     private String gender;
     private String occupation;
     private Integer healthinsuranceno;
@@ -29,15 +27,14 @@ public class Patient {
     private Integer contact;
     private String doctorid;
 
-    public Patient() {
+    public Patient(){
 
     }
 
-    public Patient(String name, Date dob, String gender, String occupation, Integer healthinsuranceno,
-                   String healthcareprovider, String patientaddress, Integer contact, String doctorid) {
+    public Patient(String name, Date dob, Integer age, String gender, String occupation, Integer healthinsuranceno, String healthcareprovider, String patientaddress, Integer contact, String doctorid) {
         this.name = name;
         this.dob = dob;
-        this.age = calculateAge(convertToLocalDateViaInstant(dob));
+        this.age = age;
         this.gender = gender;
         this.occupation = occupation;
         this.healthinsuranceno = healthinsuranceno;
@@ -59,15 +56,25 @@ public class Patient {
         this.name = name;
     }
 
-    public Date getEntrydate() { return entrydate; }
+    public LocalDate getEntrydate() {
+        return entrydate;
+    }
 
-    public Date getDob() { return dob; }
+    public Date getDob() {
+        return dob;
+    }
 
-    public void setDob(Date dob) { this.dob = dob;}
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
 
-    public Long getAge() { return age; }
+    public Integer getAge() {
+        return age;
+    }
 
-    public void setAge(Long age) { this.age = age; }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
     public String getGender() {
         return gender;
@@ -105,7 +112,9 @@ public class Patient {
         return patientaddress;
     }
 
-    public void setPatientaddress(String patientaddress) { this.patientaddress = patientaddress; }
+    public void setPatientaddress(String patientaddress) {
+        this.patientaddress = patientaddress;
+    }
 
     public Integer getContact() {
         return contact;
@@ -121,16 +130,6 @@ public class Patient {
 
     public void setDoctorid(String doctorid) {
         this.doctorid = doctorid;
-    }
-
-    public LocalDate convertToLocalDateViaInstant(Date dateToConvert) {
-        return dateToConvert.toInstant()
-                .atZone(ZoneId.systemDefault())
-                .toLocalDate();
-    }
-
-    public long calculateAge(LocalDate dob){
-        return ChronoUnit.YEARS.between(dob,LocalDate.now());
     }
 
     @Override

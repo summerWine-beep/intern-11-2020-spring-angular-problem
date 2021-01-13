@@ -16,7 +16,7 @@ export class DoctorListComponent implements OnInit {
   searchForm;
   constructor(private doctorServices: DoctorService, private router: Router, private formBuilder: FormBuilder) {
     this.searchForm = this.formBuilder.group({
-      doctorName: '',
+      name: '',
     });
   }
 
@@ -39,7 +39,6 @@ export class DoctorListComponent implements OnInit {
         },
         error => console.log(error));
   }
-
 doctorDetails(id: string){
     this.router.navigate(['doctorDetails/' + id]);
   }

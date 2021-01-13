@@ -1,6 +1,5 @@
 package com.example.restservice.repository;
-
-import com.example.restservice.models.report.Report;
+import com.example.restservice.models.reports.Report;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

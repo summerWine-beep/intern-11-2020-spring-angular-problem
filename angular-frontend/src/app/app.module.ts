@@ -18,6 +18,10 @@ import { AddPatientComponent } from './components/patient/add-patient/add-patien
 import { PatientListComponent } from './components/patient/patient-list/patient-list.component';
 import { PatientDetailsComponent } from './components/patient/patient-details/patient-details.component';
 import { UpdatePatientComponent } from './components/patient/update-patient/update-patient.component';
+import { AddReportComponent } from './components/report/add-report/add-report.component';
+import { ReportListComponent } from './components/report/report-list/report-list.component';
+import { UpdateReportComponent } from './components/report/update-report/update-report.component';
+import { ReportDetailsComponent } from './components/report/report-details/report-details.component';
 
 
 
@@ -35,7 +39,11 @@ import { UpdatePatientComponent } from './components/patient/update-patient/upda
     AddPatientComponent,
     PatientListComponent,
     PatientDetailsComponent,
-    UpdatePatientComponent
+    UpdatePatientComponent,
+    AddReportComponent,
+    ReportListComponent,
+    UpdateReportComponent,
+    ReportDetailsComponent
   ],
     imports: [
         RouterModule,

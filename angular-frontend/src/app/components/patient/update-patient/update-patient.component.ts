@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {Patient} from "../../../classes/patient";
-import {PatientService} from "../../../services/patient.service";
+import {ActivatedRoute, Router} from '@angular/router';
+import {Patient} from '../../../classes/patient';
+import {PatientService} from '../../../services/patient.service';
+import {Observable} from 'rxjs';
+import {Doctor} from '../../../classes/doctor';
+import {DoctorService} from '../../../services/doctor.service';
 
 @Component({
   selector: 'app-update-patient',
@@ -12,14 +15,17 @@ export class UpdatePatientComponent implements OnInit {
 
   id: string;
   patient: Patient;
+  doctors: Observable<Doctor[]>;
 
   constructor(private route: ActivatedRoute, private router: Router,
-              private patientService: PatientService) { }
+              private patientService: PatientService,
+              private doctorService: DoctorService) { }
 
   ngOnInit() {
+    this.doctors = this.doctorService.getAll();
     this.patient = new Patient();
 
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params.id;
 
     this.patientService.get(this.id)
       .subscribe(data => {

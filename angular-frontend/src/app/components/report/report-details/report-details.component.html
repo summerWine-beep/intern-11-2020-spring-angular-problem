@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="card shadow" style="width: 100%;">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-5"><h5 class="card-title mx-auto">Patient Report:</h5></div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Patient Name: </h6></div>
+        <div class="col">{{ patient.name }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Doctor name:</h6></div>
+        <div class="col">{{ doctor.doctorname }} - ( {{ doctor.hospital_name }} )</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6><i>Report date:</i></h6></div>
+        <div class="col">{{ report.createddate | date:'dd.MM.yyyy' }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Blood pressure:</h6></div>
+        <div class="col">{{ report.bloodpressure }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Pulse rate:</h6></div>
+        <div class="col">{{ report.pulserate }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Weight:</h6></div>
+        <div class="col">{{ report.weight }} Kg</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>History:</h6></div>
+        <div class="col">{{ report.patienthistory }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Follow up Doctor:</h6></div>
+        <div class="col">{{ followUpDoctor.doctorname }} - ( {{ followUpDoctor.hospital_name }} )</div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>

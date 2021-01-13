@@ -4,23 +4,9 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Date;
 
-/**
- * patient_id (Primary Key) - generate a 10 digits unique identifier
- * patient_name
- * entry_datetime
- * date_of_birth
- * age
- * gender
- * occupation
- * health_insurance_no
- * health_care_provider
- * patient_address
- * contact_no
- * doctor_id (Foreign key)
- */
 @Document(collection = "patients")
 public class Patient {
     @Id
@@ -29,7 +15,7 @@ public class Patient {
     private String name;
 
     @CreatedDate
-    private LocalDateTime entrydate;
+    private LocalDate entrydate = LocalDate.now();
 
     private Date dob;
     private Integer age;
@@ -70,7 +56,7 @@ public class Patient {
         this.name = name;
     }
 
-    public LocalDateTime getEntrydate() {
+    public LocalDate getEntrydate() {
         return entrydate;
     }
 

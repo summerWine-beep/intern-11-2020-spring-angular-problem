@@ -1,48 +1,37 @@
-package com.example.restservice.models.report;
+package com.example.restservice.models.reports;
+
+import com.example.restservice.models.diet.Diet;
+import com.example.restservice.models.medicin.Medicin;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
-/**
- * report_id
- * patient_id
- * doctor_id
- * created_datetime
- * blood_presure
- * pulse_rate
- * weight
- * allergies(list)
- * disabilities(list)
- * medicine(list of document)
- * diet(list of document)
- * patient_history
- * follow_up_doctor_id
- */
 @Document(collection = "reports")
 public class Report {
     @Id
     private String id;
     private String patientid;
     private String doctorid;
+
     @CreatedDate
-    private Date createddate;
-    private Double bloodpressure;
+    private LocalDate createddate = LocalDate.now();
+    private String bloodpressure;
     private Double pulserate;
     private Double weight;
     private List<String> allergies;
     private List<String> disabilities;
-    private List<Medicine> medicines;
+    private List<Medicin> medicin;
     private List<Diet> diets;
     private String patienthistory;
     private String followupdoctorid;
 
-    public Report(String patientid, String doctorid, Double bloodpressure, Double pulserate,
+    public Report(String patientid, String doctorid, String bloodpressure, Double pulserate,
                   Double weight, List<String> allergies, List<String> disabilities,
-                  List<Medicine> medicines, List<Diet> diets, String patienthistory, String followupdoctorid) {
+                  List<Medicin> medicin, List<Diet> diets, String patienthistory, String followupdoctorid) {
         this.patientid = patientid;
         this.doctorid = doctorid;
         this.bloodpressure = bloodpressure;
@@ -50,7 +39,7 @@ public class Report {
         this.weight = weight;
         this.allergies = allergies;
         this.disabilities = disabilities;
-        this.medicines = medicines;
+        this.medicin = medicin;
         this.diets = diets;
         this.patienthistory = patienthistory;
         this.followupdoctorid = followupdoctorid;
@@ -80,15 +69,15 @@ public class Report {
         this.doctorid = doctorid;
     }
 
-    public Date getCreateddate() {
+    public LocalDate getCreateddate() {
         return createddate;
     }
 
-    public Double getBloodpressure() {
+    public String getBloodpressure() {
         return bloodpressure;
     }
 
-    public void setBloodpressure(Double bloodpressure) {
+    public void setBloodpressure(String bloodpressure) {
         this.bloodpressure = bloodpressure;
     }
 
@@ -124,12 +113,12 @@ public class Report {
         this.disabilities = disabilities;
     }
 
-    public List<Medicine> getMedicines() {
-        return medicines;
+    public List<Medicin> getMedicin() {
+        return medicin;
     }
 
-    public void setMedicines(List<Medicine> medicines) {
-        this.medicines = medicines;
+    public void setMedicines(List<Medicin> medicin) {
+        this.medicin = medicin;
     }
 
     public List<Diet> getDiets() {
@@ -156,4 +145,3 @@ public class Report {
         this.followupdoctorid = followupdoctorid;
     }
 }
-

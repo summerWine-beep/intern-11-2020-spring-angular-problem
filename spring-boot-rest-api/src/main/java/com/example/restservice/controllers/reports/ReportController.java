@@ -1,7 +1,7 @@
-package com.example.restservice.controllers.report;
+package com.example.restservice.controllers.reports;
 
 import com.example.restservice.models.patient.Patient;
-import com.example.restservice.models.report.Report;
+import com.example.restservice.models.reports.Report;
 import com.example.restservice.repository.PatientRepository;
 import com.example.restservice.repository.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 
 @CrossOrigin
 @RestController
@@ -58,7 +59,6 @@ public class ReportController {
         }
     }
 
-
     @Autowired
     PatientRepository patientRepository;
 
@@ -90,7 +90,7 @@ public class ReportController {
                     report.getWeight(),
                     report.getAllergies(),
                     report.getDisabilities(),
-                    report.getMedicines(),
+                    report.getMedicin(),
                     report.getDiets(),
                     report.getPatienthistory(),
                     report.getFollowupdoctorid()
@@ -132,8 +132,8 @@ public class ReportController {
                 _report.setDisabilities(report.getDisabilities());
             }
 
-            if (report.getMedicines() != null) {
-                _report.setMedicines((report.getMedicines()));
+            if (report.getMedicin() != null) {
+                _report.setMedicines((report.getMedicin()));
             }
 
             if (report.getDiets() != null) {
@@ -173,4 +173,7 @@ public class ReportController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
+
 }

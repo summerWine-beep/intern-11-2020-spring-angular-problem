@@ -1,1 +1,39 @@
-<p>add-report works!</p>
+<div class="row row justify-content-center align-self-center">
+  <div [hidden]="submitted" style="width: 400px;" >
+    <h3>Add Report</h3>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="patientid">Patient Id</label>
+        <input type="text" class="form-control" id="patientid" required [(ngModel)]="report.patientid" name="patientid">
+      </div>
+
+      <div class="form-group">
+        <label for="doctorid">Doctor Id</label>
+        <input type="text" class="form-control" id="doctorid" required [(ngModel)]="report.doctorid" name="doctorid">
+      </div>
+
+      <div class="form-group">
+        <label for="bloodpressure">Blodd Pressure</label>
+        <input type="text" class="form-control" id="bloodpressure" required [(ngModel)]="report.bloodpressure" name="bloodpressure">
+      </div>
+
+      <div class="form-group">
+        <label for="pulserate">Pulse Rate</label>
+        <input type="text" class="form-control" id="pulserate" required [(ngModel)]="report.pulserate" name="pulserate">
+      </div>
+
+      <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="text" class="form-control" id="weight" required [(ngModel)]="report.weight" name="weight">
+      </div>
+
+
+
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+  </div>
+</div>

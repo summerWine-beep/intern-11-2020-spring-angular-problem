@@ -13,7 +13,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let patient of patients | async">
+      <tr *ngFor="let patient of patient | async">
         <td>{{patient.name}}</td>
         <td>{{patient.age}}</td>
         <td>{{patient.contact}}</td>

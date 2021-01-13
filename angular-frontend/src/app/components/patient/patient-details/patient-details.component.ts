@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Patient} from '../../../classes/patient';
+import {ActivatedRoute, Router} from '@angular/router';
+import {PatientService} from '../../../services/patient.service';
 
 @Component({
   selector: 'app-patient-details',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientDetailsComponent implements OnInit {
 
-  constructor() { }
+  patient: Patient;
+  id: string;
+
+  constructor(private route: ActivatedRoute, private router: Router,
+              private patientService: PatientService) { }
 
   ngOnInit(): void {
+    this.patient = new Patient();
+    this.id = this.route.snapshot.params.id;
+    this.patientService.get(this.id)
+      .subscribe(data => {
+        console.log(data);
+        this.patient = data;
+      }, error => console.log(error));
+  }
+
+  list(){
+    this.router.navigate(['patients']);
+  }
+  updateLink(){
+    this.router.navigate(['updatePatient/' + this.patient.id]);
   }
 
 }

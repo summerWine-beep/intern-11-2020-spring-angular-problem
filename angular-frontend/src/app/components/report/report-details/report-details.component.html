@@ -1,0 +1,30 @@
+<div class="row row justify-content-center align-self-center">
+  <div style="width: 400px;" *ngIf="reports">
+    <h2>Doctor Details</h2>
+    <div>
+      <label><b>Doctor ID: </b></label> {{reports.doctorid}}
+    </div>
+    <div>
+      <label><b>Patient Id: </b></label> {{reports.patientid}}
+    </div>
+    <div>
+      <label><b>Blood Pressure: </b></label> {{reports.bloodpressure}}
+    </div>
+    <div>
+      <label><b>Pulse Rate: </b></label> {{reports.pulserate}}
+    </div>
+    <div>
+      <label><b>Weight: </b></label> {{reports.weight}}
+    </div>
+    <div>
+      <label><b>Allergies Picture: </b></label> {{reports.allergies}}
+    </div>
+
+
+    <br>
+    <br>
+    <button (click)="updateDoctors()" class="btn btn-info">Update</button> <span></span>
+    <button (click)="list()" class="btn btn-primary">Back to Doctor List</button><br>
+
+  </div>
+</div>

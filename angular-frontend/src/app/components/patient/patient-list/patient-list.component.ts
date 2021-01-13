@@ -12,7 +12,7 @@ import {FormBuilder} from '@angular/forms';
 })
 export class PatientListComponent implements OnInit {
 
-  patients: Observable<Patient[]>;
+  patient: Observable<Patient[]>;
   searchForm;
 
   constructor(private patientService: PatientService, private router: Router,
@@ -28,8 +28,8 @@ export class PatientListComponent implements OnInit {
   }
 
   reloadData(){
-    this.patients = this.patientService.getAll();
-    console.log(this.patients);
+    this.patient = this.patientService.getAll();
+    console.log(this.patient);
   }
 
   deletePatient(id: string) {
@@ -53,7 +53,7 @@ export class PatientListComponent implements OnInit {
   OnSubmit(searchName){
     console.log('Search name:');
     console.log(searchName.name);
-    this.patients = this.patientService.findByPatientName(searchName.name);
+    this.patient = this.patientService.findByPatientName(searchName.name);
   }
 
 }

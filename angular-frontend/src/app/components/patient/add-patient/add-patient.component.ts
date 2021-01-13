@@ -12,7 +12,7 @@ import {Doctor} from '../../../classes/doctor';
   styleUrls: ['./add-patient.component.css']
 })
 export class AddPatientComponent implements OnInit {
-  patients: Patient = new Patient();
+  patient: Patient = new Patient();
   submitted = false;
   doctors: Observable<Doctor[]>;
 
@@ -24,15 +24,15 @@ export class AddPatientComponent implements OnInit {
   }
   newPatient(): void {
     this.submitted = false;
-    this.patients = new Patient();
+    this.patient = new Patient();
   }
 
   save() {
     this.patientService
-      .create(this.patients).subscribe(data => {
+      .create(this.patient).subscribe(data => {
         console.log(data);
-        this.patients = new Patient();
-        console.log(this.patients);
+        this.patient = new Patient();
+        console.log(this.patient);
         this.gotoList();
       },
       error => console.log(error));

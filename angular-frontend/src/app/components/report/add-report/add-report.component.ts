@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Report} from "../../../classes/report";
-import {Observable} from "rxjs";
-import {Patient} from "../../../classes/patient";
-import {Doctor} from "../../../classes/doctor";
-import {PatientService} from "../../../services/patient.service";
-import {DoctorService} from "../../../services/doctor.service";
-import {ReportService} from "../../../services/report.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {Report} from '../../../classes/report';
+import {ReportService} from '../../../services/report.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-report',
@@ -15,7 +9,6 @@ import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
   styleUrls: ['./add-report.component.css']
 })
 export class AddReportComponent implements OnInit {
-
   report: Report = new Report();
   submitted = false;
 

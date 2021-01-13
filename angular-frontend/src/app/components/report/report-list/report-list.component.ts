@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Patient } from 'src/app/classes/patient';
-import {Observable, Subscription} from "rxjs";
-import {Report} from "../../../classes/report";
-import {ReportService} from "../../../services/report.service";
-import {PatientService} from "../../../services/patient.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Doctor} from "../../../classes/doctor";
-import {DoctorService} from "../../../services/doctor.service";
-import {FormBuilder} from "@angular/forms";
+import {Observable, Subscription} from 'rxjs';
+import {Report} from '../../../classes/report';
+import {ReportService} from '../../../services/report.service';
+
+import {ActivatedRoute, Router} from '@angular/router';
+
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-report-list',
@@ -25,7 +23,7 @@ export class ReportListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Doctor List');
+    console.log('Report List');
     this.reloadData();
   }
 
@@ -33,28 +31,13 @@ export class ReportListComponent implements OnInit {
     this.reports = this.reportService.getAll();
     console.log(this.reports);
   }
-
-  deleteDoctor(id: string) {
-    this.reportService.delete(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
-  }
-  doctorDetails(id: string){
+  reportDetails(id: string){
     this.router.navigate(['reportDetails/' + id]);
   }
 
-  updateDoctor(id: string){
+  updateReport(id: string){
     this.router.navigate(['updateReport/' + id]);
   }
 
-  OnSubmit(searchName){
-    console.log('Search Doctor Name:');
-    console.log(searchName.doctorName);
-    this.reports = this.reportService.findByDoctorName(searchName.doctorName);
-  }
 
 }

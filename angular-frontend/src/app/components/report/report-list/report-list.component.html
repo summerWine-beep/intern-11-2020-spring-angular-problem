@@ -16,12 +16,11 @@
       <tr *ngFor="let report of reports | async">
         <td>{{report.doctorid}}</td>
         <td>{{report.patientid}}</td>
-        <td>{{report.pulserate}}</td>
 
 
         <td>
-          <button (click)="updateDoctor(report.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-          <button (click)="doctorDetails(report.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button (click)="updateReport(report.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+          <button (click)="reportDetails(report.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
         </td>
       </tr>
       </tbody>

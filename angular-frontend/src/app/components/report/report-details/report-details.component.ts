@@ -30,7 +30,7 @@ export class ReportDetailsComponent implements OnInit {
   list(){
     this.router.navigate(['reports']);
   }
-  updateDoctors(){
+  updateReports(){
     this.router.navigate(['updateReport/' + this.reports.id]);
   }
 

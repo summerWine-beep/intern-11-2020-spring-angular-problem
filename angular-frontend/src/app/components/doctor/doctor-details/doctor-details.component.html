@@ -1,0 +1,29 @@
+<div class="row row justify-content-center align-self-center">
+  <div style="width: 400px;" >
+    <br><br>
+    <h2>Doctor Details</h2>
+    <div class="card bg-dark text-white">
+      <div>
+        <label><b>Name: </b></label> {{doctor.name}}
+      </div>
+      <div>
+        <label><b>Speciality: </b></label> {{doctor.speciality}}
+      </div>
+      <div>
+        <label><b>Address: </b></label> {{doctor.address}}
+      </div>
+      <div>
+        <label><b>Hospital Name: </b></label> {{doctor.hosname}}
+      </div>
+      <div>
+        <label><b>About: </b></label> {{doctor.about}}
+      </div>
+    </div>
+
+
+    <br>
+    <br>
+    <button (click)="updateLink()" class="btn btn-info" span="span4">Update</button> <span></span>
+    <button (click)="list()" class="btn btn-primary">Back to Tutorial List</button><br>
+  </div>
+</div>

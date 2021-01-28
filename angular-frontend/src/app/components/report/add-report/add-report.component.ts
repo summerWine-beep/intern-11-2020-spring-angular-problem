@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Report} from '../../../classes/report';
 import {ReportService} from '../../../services/report.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {PatientService} from '../../../services/patient.service';
+import {DoctorService} from '../../../services/doctor.service';
+import {Observable} from 'rxjs';
+import {Patient} from '../../../classes/patient';
+import {Doctor} from '../../../classes/doctor';
 
 @Component({
   selector: 'app-add-report',
@@ -11,11 +16,20 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class AddReportComponent implements OnInit {
   report: Report = new Report();
   submitted = false;
+  reportID: string;
+  patientID: string;
+  patients: Observable<Patient[]>;
+  doctors: Observable<Doctor[]>;
+  Patient: Patient;
 
   constructor(private reportService: ReportService,
+              private patientService: PatientService,
+              private doctorService: DoctorService,
               private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.doctors = this.doctorService.getAll();
+    this.patients = this.patientService.getAll();
   }
 
   newReport(): void {

@@ -4,7 +4,12 @@
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="patientid">Patient Id</label>
-        <input type="text" class="form-control" id="patientid" required [(ngModel)]="report.patientid" name="patientid">
+        <select type="text" class="form-control" id="patientid" required [(ngModel)]="report.patientid" name="patientid">
+          <option *ngFor= "let patient of patients | async;" [value]="patient.id">
+            {{patient.name}} [{{patient.contact}}]
+
+          </option>
+        </select>
       </div>
 
       <div class="form-group">
